@@ -1322,18 +1322,25 @@ select.pill-input,select.admin-input,select.admin-select-action{
 .mobile-only-link{display:none}
 
 @media (max-width:600px){
-  .navbar{justify-content:space-between}
+  /* Logo centrado; el botón de menú queda fijo a la derecha con
+     position:absolute (.navbar ya es sticky, que también sirve de
+     contenedor de posicionamiento) en vez de competir por el espacio
+     en el flex row. */
+  .navbar{justify-content:center}
+  .navbar .menu-toggle{
+    display:flex;color:var(--color-texto);
+    position:absolute;right:var(--esp-4);top:50%;transform:translateY(-50%);
+  }
   /* .navbar es sticky con su propio z-index: sin esto, su stacking
      context lo deja "atrapado" debajo del backdrop pese a que el
      drawer de adentro tenga z-index más alto. */
   .navbar.menu-abierto{z-index:120}
-  .navbar .menu-toggle{display:flex;color:var(--color-texto)}
   /* En páginas con dashboard (tienen .sub-nav) el menú principal se
      pliega adentro del mismo hamburger del sub-nav: dos botones de
      menú apilados para una sola app quedaba confuso. */
   body:has(.sub-nav) .navbar .menu-toggle{display:none}
   .mobile-only-link{display:block}
-  .sub-nav{justify-content:space-between;padding:var(--esp-3) var(--esp-4)}
+  .sub-nav{justify-content:flex-end;padding:var(--esp-3) var(--esp-4)}
   .menu-toggle{display:flex}
 
   .mobile-drawer{
