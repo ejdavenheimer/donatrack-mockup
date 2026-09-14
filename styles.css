@@ -1316,6 +1316,10 @@ select.pill-input,select.admin-input,select.admin-select-action{
    en flex de .navbar/.sub-nav, igual que antes de envolverlos. */
 .mobile-drawer{display:contents}
 .mobile-drawer-title{display:none}
+/* "Inicio"/"Donaciones" que el JS agrega arriba del menú del dashboard
+   en mobile (ver mobile-menu.js) — no deben verse en desktop, ya están
+   en el navbar de arriba. */
+.mobile-only-link{display:none}
 
 @media (max-width:600px){
   .navbar{justify-content:space-between}
@@ -1324,6 +1328,11 @@ select.pill-input,select.admin-input,select.admin-select-action{
      drawer de adentro tenga z-index más alto. */
   .navbar.menu-abierto{z-index:120}
   .navbar .menu-toggle{display:flex;color:var(--color-texto)}
+  /* En páginas con dashboard (tienen .sub-nav) el menú principal se
+     pliega adentro del mismo hamburger del sub-nav: dos botones de
+     menú apilados para una sola app quedaba confuso. */
+  body:has(.sub-nav) .navbar .menu-toggle{display:none}
+  .mobile-only-link{display:block}
   .sub-nav{justify-content:space-between;padding:var(--esp-3) var(--esp-4)}
   .menu-toggle{display:flex}
 

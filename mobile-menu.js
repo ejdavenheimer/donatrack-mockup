@@ -11,6 +11,23 @@
   var toggles = document.querySelectorAll(".menu-toggle");
   if (!toggles.length) return;
 
+  // En páginas con dashboard, el hamburger del navbar principal queda
+  // oculto en mobile (ver CSS) para no tener dos botones de menú
+  // apilados: "Inicio"/"Donaciones" se suman arriba del menú del
+  // sub-nav, así no se pierden.
+  var subNavLinks = document.querySelector(".sub-nav-links");
+  if (subNavLinks) {
+    var extra = document.createElement("li");
+    extra.className = "mobile-only-link";
+    extra.innerHTML =
+      '<a href="index.html">Inicio</a>';
+    var extra2 = document.createElement("li");
+    extra2.className = "mobile-only-link";
+    extra2.innerHTML = '<a href="donaciones.html">Donaciones</a>';
+    subNavLinks.insertBefore(extra2, subNavLinks.firstChild);
+    subNavLinks.insertBefore(extra, subNavLinks.firstChild);
+  }
+
   var backdrop = document.createElement("div");
   backdrop.className = "mobile-nav-backdrop";
   document.body.appendChild(backdrop);
