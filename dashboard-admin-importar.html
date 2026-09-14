@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DonaTrack - Administración | Importar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="tokens.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dashboard-body">
+
+    <!-- BARRA DE NAVEGACIÓN PRINCIPAL -->
+    <header class="navbar">
+        <div class="logo">
+            <span class="logo-icon"><span class="logo-img" role="img" aria-label="Logo DonaTrack"></span></span>
+            <h1>DONATRACK</h1>
+        </div>
+        <nav aria-label="Navegación principal">
+            <div class="mobile-drawer">
+            <div class="mobile-drawer-title"><h3>Menú</h3><button type="button" class="menu-cerrar" aria-label="Cerrar menú"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="donaciones.html">Donaciones</a></li>
+            </ul>
+        </div>
+        </nav>
+    <button type="button" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="M4 6h16"/><path d="M4 18h16"/></svg></button>
+    </header>
+
+    <!-- SUB-NAVEGACIÓN (Admin) -->
+    <nav class="sub-nav" aria-label="Navegación de administración">
+        <button type="button" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="sub-nav-links"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="M4 6h16"/><path d="M4 18h16"/></svg></button>
+        <div class="mobile-drawer">
+            <div class="mobile-drawer-title"><h3>Menú</h3><button type="button" class="menu-cerrar" aria-label="Cerrar menú"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div>
+            <ul class="sub-nav-links" id="sub-nav-links">
+            <li><a href="dashboard-admin-registrar.html">Registrar</a></li>
+            <li><a href="dashboard-admin-estado.html">Estado</a></li>
+            <li><a href="dashboard-admin-asignaciones.html">Asignaciones</a></li>
+            <li><a href="dashboard-admin-camiones.html">Camiones</a></li>
+            <li><a href="dashboard-admin-ranking.html">Ranking</a></li>
+            <li><a href="dashboard-admin-importar.html" class="active" aria-current="page">Importar</a></li>
+        </ul>
+        <div class="user-menu">
+            <a href="#" class="user-link">ADMIN <span aria-hidden="true"><svg aria-hidden="true" class="lucide lucide-user" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /> <circle cx="12" cy="7" r="4" /> </svg></span></a>
+            <button type="button" class="logout-btn" aria-label="Cerrar sesión"><svg aria-hidden="true" class="lucide lucide-log-out" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="m16 17 5-5-5-5" /> <path d="M21 12H9" /> <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /> </svg> Salir</button>
+        </div>
+        </div>
+    </nav>
+
+    <main class="page-container dashboard-container admin-container">
+        
+        <!-- ENCABEZADO DE SECCIÓN -->
+        <header class="admin-header-row">
+            <div class="admin-header-text">
+                <h2>Importación masiva de personas donantes</h2>
+                <p>Subí el padrón de personas donantes en un archivo <strong>.csv</strong> de hasta 10.000 filas o más: identificamos a quienes ya están registradas, actualizamos sus datos y damos de alta con acceso automático a las nuevas.</p>
+            </div>
+        </header>
+
+        <!-- BLOQUE 1: INSTRUCCIONES -->
+        <section class="admin-form-card" aria-label="Instrucciones de importación">
+            <header class="card-header-flex" style="margin-bottom: 20px;">
+                <div class="card-title-group">
+                    <h2>Cómo funciona la importación</h2>
+                    <p>Cada fila representa una persona donante humana o jurídica. El sistema toma el email como dato principal para ubicarla: si ya existe, actualiza su información; si no existe, crea el usuario y le envía sus accesos automáticamente.</p>
+                </div>
+                <span class="badge-gray"><svg aria-hidden="true" class="lucide lucide-file-text" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" /> <path d="M14 2v5a1 1 0 0 0 1 1h5" /> <path d="M10 9H8" /> <path d="M16 13H8" /> <path d="M16 17H8" /> </svg> Archivo de prueba: 20.000 filas</span>
+            </header>
+
+            <!-- Pasos explicativos -->
+            <div class="import-steps-grid">
+                <div class="import-step-box highlighted">
+                    <span class="step-eyebrow">1. SUBIR CSV</span>
+                    <h4>Importar archivo completo</h4>
+                    <p>Se procesa el lote completo aunque tenga más de 10.000 filas.</p>
+                </div>
+                <div class="import-step-box">
+                    <span class="step-eyebrow">2. IDENTIFICAR</span>
+                    <h4>Buscar por email</h4>
+                    <p>El correo permite ubicar a la persona donante para decidir si se actualiza o se crea.</p>
+                </div>
+                <div class="import-step-box">
+                    <span class="step-eyebrow">3. ACTUALIZAR / CREAR</span>
+                    <h4>Mantener padrón al día</h4>
+                    <p>Si ya existe, se actualizan datos. Si no existe, se genera un nuevo usuario.</p>
+                </div>
+                <div class="import-step-box">
+                    <span class="step-eyebrow">4. ENVIAR ACCESOS</span>
+                    <h4>Credenciales automáticas</h4>
+                    <p>Las personas nuevas reciben correo de bienvenida con sus datos de acceso.</p>
+                </div>
+            </div>
+
+            <!-- Grilla de formato vs reglas -->
+            <div class="import-format-grid">
+                
+                <!-- Columna Izquierda: Tabla CSV -->
+                <div class="format-table-side">
+                    <h3>Formato esperado del archivo CSV</h3>
+                    <p>Cada línea debe incluir los datos mínimos para poder identificar y contactar a la persona donante.</p>
+                    
+                    <div class="csv-mock-table-wrapper">
+                        <table class="csv-mock-table">
+                            <thead>
+                                <tr>
+                                    <th>TipoPersona</th>
+                                    <th>TipoDoc</th>
+                                    <th>Documento</th>
+                                    <th>Nombre/Razón Social</th>
+                                    <th>Email</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>HUMANA</td>
+                                    <td>DNI</td>
+                                    <td>12345678</td>
+                                    <td>Ana Pérez</td>
+                                    <td>ana@mail.com</td>
+                                </tr>
+                                <tr>
+                                    <td>JURIDICA</td>
+                                    <td>CUIT</td>
+                                    <td>30-12345678-9</td>
+                                    <td>Arcos Plateados S.A.</td>
+                                    <td>contacto@empresa.com</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Reglas -->
+                <div class="rules-side">
+                    <div class="rule-box">
+                        <div class="rule-icon" aria-hidden="true"><svg aria-hidden="true" class="lucide lucide-user" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /> <circle cx="12" cy="7" r="4" /> </svg></div>
+                        <div>
+                            <strong>Si el email ya existe</strong>
+                            <p>Se actualiza la ficha de la persona donante con los datos del CSV.</p>
+                        </div>
+                    </div>
+                    <div class="rule-box">
+                        <div class="rule-icon" aria-hidden="true"><svg aria-hidden="true" class="lucide lucide-user-plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /> <circle cx="9" cy="7" r="4" /> <line x1="19" x2="19" y1="8" y2="14" /> <line x1="22" x2="16" y1="11" y2="11" /> </svg></div>
+                        <div>
+                            <strong>Si el email no existe</strong>
+                            <p>Se crea el usuario y se envían las credenciales de acceso automáticamente.</p>
+                        </div>
+                    </div>
+                    <div class="rule-box highlight-rule">
+                        <div class="rule-icon" aria-hidden="true"><svg aria-hidden="true" class="lucide lucide-mail" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" /> <rect x="2" y="4" width="20" height="16" rx="2" /> </svg></div>
+                        <div>
+                            <strong>Resultado esperado</strong>
+                            <p>El padrón queda listo y las personas nuevas reciben sus accesos para ingresar a la plataforma.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advertencia Final -->
+            <div class="import-warning-box">
+                <span aria-hidden="true">ⓘ</span>
+                <p><strong>Importante:</strong> con estos datos debe ser posible ubicar a la persona donante en el sistema. Si no está registrada, el sistema crea su usuario y le envía un correo con las credenciales de acceso. Se recomienda cargar el archivo en formato UTF-8.</p>
+            </div>
+        </section>
+
+        <!-- BLOQUE 2: ZONA DE CARGA (DRAG & DROP) -->
+        <section class="admin-form-card" aria-label="Ejecutar importación">
+            <header class="card-header-flex" style="margin-bottom: 20px;">
+                <div class="card-title-group">
+                    <h2>Subir archivo y ejecutar importación</h2>
+                    <p>Subí el archivo y confirmá el procesamiento: se actualizan las personas ya registradas y se generan cuentas nuevas con envío automático de accesos.</p>
+                </div>
+                <span class="badge-gray"><svg aria-hidden="true" class="lucide lucide-shield-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /> <path d="m9 12 2 2 4-4" /> </svg> Importación segura</span>
+            </header>
+
+            <div class="upload-split-layout">
+                <!-- Zona Drag & Drop y estado del archivo -->
+                <div class="upload-area-main">
+                    <div class="drag-drop-zone">
+                        <div class="upload-icon" aria-hidden="true"><svg aria-hidden="true" class="lucide lucide-cloud-upload" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M12 13v8" /> <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" /> <path d="m8 17 4-4 4 4" /> </svg></div>
+                        <h3>Subir archivo CSV</h3>
+                        <p>Arrastrá y soltá el archivo aquí o hacé clic para seleccionarlo desde tu equipo.</p>
+                    </div>
+
+                    <!-- Archivo cargado (Simulado) -->
+                    <div class="file-loaded-status">
+                        <div class="status-box">
+                            <span class="step-eyebrow">Archivo</span>
+                            <strong>donantes_historico.csv</strong>
+                        </div>
+                        <div class="status-box">
+                            <span class="step-eyebrow">Filas detectadas</span>
+                            <strong>20.000</strong>
+                        </div>
+                        <div class="status-box">
+                            <span class="step-eyebrow">Acción esperada</span>
+                            <strong>Actualizar y crear usuarios</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resumen y Acción (Derecha) -->
+                <div class="upload-summary-side">
+                    <div class="summary-card">
+                        <span aria-hidden="true"><svg aria-hidden="true" class="lucide lucide-file-text" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" /> <path d="M14 2v5a1 1 0 0 0 1 1h5" /> <path d="M10 9H8" /> <path d="M16 13H8" /> <path d="M16 17H8" /> </svg></span>
+                        <div>
+                            <strong>Archivo esperado</strong>
+                            <p>Formato .csv con columnas válidas y codificación UTF-8.</p>
+                        </div>
+                    </div>
+                    <div class="summary-card">
+                        <span aria-hidden="true"><svg aria-hidden="true" class="lucide lucide-users" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /> <path d="M16 3.128a4 4 0 0 1 0 7.744" /> <path d="M22 21v-2a4 4 0 0 0-3-3.87" /> <circle cx="9" cy="7" r="4" /> </svg></span>
+                        <div>
+                            <strong>Resultado del proceso</strong>
+                            <p>Se actualizan donantes existentes y se crean cuentas nuevas con envío de credenciales.</p>
+                        </div>
+                    </div>
+                    <div class="summary-card">
+                        <span aria-hidden="true"><svg aria-hidden="true" class="lucide lucide-package" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z" /> <path d="M12 22V12" /> <polyline points="3.29 7 12 12 20.71 7" /> <path d="m7.5 4.27 9 5.15" /> </svg></span>
+                        <div>
+                            <strong>Capacidad</strong>
+                            <p>Soporta archivos con más de <strong>10.000</strong> filas y permite usar el lote de prueba de <strong>20.000</strong> filas.</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 20px;">
+                        <button type="button" class="btn-outline-gray btn-block" style="margin-bottom: 10px;">
+                            <span aria-hidden="true"><svg aria-hidden="true" class="lucide lucide-archive" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <rect width="20" height="5" x="2" y="3" rx="1" /> <path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8" /> <path d="M10 12h4" /> </svg></span> Más de 10.000 filas soportadas
+                        </button>
+                        <button type="button" class="btn-solid-black btn-block" id="btn-importar">
+                            <span class="btn-spinner" hidden aria-hidden="true"></span>
+                            <span class="btn-importar-texto">Importar archivo y enviar accesos</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-left"><p>© 2026 DonaTrack - UTN Solidaria</p></div>
+        <div class="footer-right">
+            <a href="#">Términos y Condiciones</a>
+            <a href="#">Política de Privacidad</a>
+            <a href="#">Contacto</a>
+        </div>
+    </footer>
+    <script src="toast.js"></script>
+    <script src="logout.js"></script>
+    <script>
+        document.getElementById("btn-importar").addEventListener("click", function () {
+            var btn = this;
+            var spinner = btn.querySelector(".btn-spinner");
+            var texto = btn.querySelector(".btn-importar-texto");
+            if (btn.disabled) return;
+
+            btn.disabled = true;
+            spinner.hidden = false;
+            texto.textContent = "Importando 20.000 filas…";
+
+            // Simulación de proceso asincrónico (el mockup no tiene backend real).
+            setTimeout(function () {
+                spinner.hidden = true;
+                texto.textContent = "Importar archivo y enviar accesos";
+                btn.disabled = false;
+                DonaToast.show("Importación completa: padrón actualizado y accesos enviados.", "exito");
+            }, 1600);
+        });
+    </script>
+    <script src="mobile-menu.js"></script>
+</body>
+</html>

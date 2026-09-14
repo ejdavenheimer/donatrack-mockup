@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DonaTrack - Registrar Necesidad</title>
+    <!-- ¡ESTA ES LA LÍNEA QUE TE FALTABA! -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="tokens.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dashboard-body">
+
+    <!-- BARRA DE NAVEGACIÓN PRINCIPAL -->
+    <header class="navbar">
+        <div class="logo">
+            <span class="logo-icon"><span class="logo-img" role="img" aria-label="Logo DonaTrack"></span></span>
+            <h1>DONATRACK</h1>
+        </div>
+        <nav aria-label="Navegación principal">
+            <div class="mobile-drawer">
+            <div class="mobile-drawer-title"><h3>Menú</h3><button type="button" class="menu-cerrar" aria-label="Cerrar menú"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="donaciones.html">Donaciones</a></li>
+            </ul>
+        </div>
+        </nav>
+    <button type="button" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="M4 6h16"/><path d="M4 18h16"/></svg></button>
+    </header>
+
+    <!-- SUB-NAVEGACIÓN PARA BENEFICIARIO -->
+    <nav class="sub-nav" aria-label="Navegación de usuario">
+        <button type="button" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="sub-nav-links"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="M4 6h16"/><path d="M4 18h16"/></svg></button>
+        <div class="mobile-drawer">
+            <div class="mobile-drawer-title"><h3>Menú</h3><button type="button" class="menu-cerrar" aria-label="Cerrar menú"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div>
+            <ul class="sub-nav-links" id="sub-nav-links">
+            <li><a href="dashboard-beneficiario-registrar.html" class="active" aria-current="page">Registrar necesidad</a></li>
+            <li><a href="dashboard-beneficiario-estado.html">Estado</a></li>
+            <li><a href="dashboard-beneficiario-notificaciones.html">Notificaciones</a></li>
+            <li><a href="dashboard-beneficiario-seguimiento.html">Seguimiento</a></li>
+        </ul>
+        <div class="user-menu">
+            <a href="#" class="user-link">ENTIDAD <span aria-hidden="true"><svg aria-hidden="true" class="lucide lucide-user" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /> <circle cx="12" cy="7" r="4" /> </svg></span></a>
+            <button type="button" class="logout-btn" aria-label="Cerrar sesión"><svg aria-hidden="true" class="lucide lucide-log-out" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="m16 17 5-5-5-5" /> <path d="M21 12H9" /> <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /> </svg> Salir</button>
+        </div>
+        </div>
+    </nav>
+
+    <!-- CONTENIDO DEL DASHBOARD -->
+    <main class="page-container dashboard-container">
+        <h2 class="tracking-title">Registrar necesidad</h2>
+        <p class="page-subtitle">Contale a la red qué necesita tu institución para que un donante pueda cubrirlo.</p>
+
+        <div class="beneficiario-card">
+            <form action="#" method="POST" id="form-registrar-necesidad">
+                <div class="form-row">
+                    <label class="form-label">Tipo:</label>
+                    <div class="form-content">
+                        <div class="role-toggle">
+                            <button type="button" class="role-btn active">Recurrente</button>
+                            <button type="button" class="role-btn">Extraordinaria</button>
+                        </div>
+                        <p class="hint">Usá recurrente para consumos habituales del período y extraordinaria para urgencias, emergencias o situaciones puntuales.</p>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <label class="form-label" for="rn-subcategoria">Subcategoría:</label>
+                    <div class="form-content">
+                        <select id="rn-subcategoria" class="pill-input">
+                            <option value="">Seleccionar subcategoría</option>
+                            <option>Alimentos secos</option>
+                            <option>Ropa de abrigo</option>
+                            <option>Mobiliario</option>
+                            <option>Útiles escolares</option>
+                            <option>Productos de higiene</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <label class="form-label" for="rn-cantidad">Cantidad:</label>
+                    <div class="form-content">
+                        <input type="number" id="rn-cantidad" class="pill-input" placeholder="100">
+                        <select class="pill-input">
+                            <option value="">Período</option>
+                            <option>Semanal</option>
+                            <option>Quincenal</option>
+                            <option>Mensual</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <label class="form-label" for="rn-descripcion">Descripción:</label>
+                    <div class="form-content">
+                        <textarea id="rn-descripcion" class="pill-input" rows="4" placeholder="Ej: El comedor infantil Escobar Sonrisas necesita 100 paquetes..."></textarea>
+                    </div>
+                </div>
+
+                <div class="form-submit-center">
+                    <button type="submit" class="btn-solid-dark">Confirmar necesidad</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-left">
+            <p>© 2026 DonaTrack - UTN Solidaria</p>
+        </div>
+        <div class="footer-right">
+            <a href="#">Términos y Condiciones</a>
+            <a href="#">Política de Privacidad</a>
+            <a href="#">Contacto</a>
+        </div>
+    </footer>
+
+    <script src="dropdowns.js"></script>
+    <script src="toast.js"></script>
+    <script src="logout.js"></script>
+    <script>
+        document.getElementById("form-registrar-necesidad").addEventListener("submit", function (e) {
+            e.preventDefault();
+            this.reset();
+            DonaToast.show("Necesidad registrada. La verán los donantes activos en tu zona.", "exito");
+        });
+    </script>
+    <script src="mobile-menu.js"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DonaTrack - Registrar Necesidad</title>
+    <!-- ¡ESTA ES LA LÍNEA QUE TE FALTABA! -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="tokens.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dashboard-body">
+
+    <!-- BARRA DE NAVEGACIÓN PRINCIPAL -->
+    <header class="navbar">
+        <div class="logo">
+            <span class="logo-icon"><span class="logo-img" role="img" aria-label="Logo DonaTrack"></span></span>
+            <h1>DONATRACK</h1>
+        </div>
+        <nav aria-label="Navegación principal">
+            <div class="mobile-drawer">
+            <div class="mobile-drawer-title"><h3>Menú</h3><button type="button" class="menu-cerrar" aria-label="Cerrar menú"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="donaciones.html">Donaciones</a></li>
+            </ul>
+        </div>
+        </nav>
+    <button type="button" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="M4 6h16"/><path d="M4 18h16"/></svg></button>
+    </header>
+
+    <!-- SUB-NAVEGACIÓN PARA BENEFICIARIO -->
+    <nav class="sub-nav" aria-label="Navegación de usuario">
+        <button type="button" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="sub-nav-links"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="M4 6h16"/><path d="M4 18h16"/></svg></button>
+        <div class="mobile-drawer">
+            <div class="mobile-drawer-title"><h3>Menú</h3><button type="button" class="menu-cerrar" aria-label="Cerrar menú"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div>
+            <ul class="sub-nav-links" id="sub-nav-links">
+            <li><a href="dashboard-beneficiario-registrar.html" class="active" aria-current="page">Registrar necesidad</a></li>
+            <li><a href="dashboard-beneficiario-estado.html">Estado</a></li>
+            <li><a href="dashboard-beneficiario-notificaciones.html">Notificaciones</a></li>
+            <li><a href="dashboard-beneficiario-seguimiento.html">Seguimiento</a></li>
+        </ul>
+        <div class="user-menu">
+            <a href="#" class="user-link">ENTIDAD <span aria-hidden="true"><svg aria-hidden="true" class="lucide lucide-user" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /> <circle cx="12" cy="7" r="4" /> </svg></span></a>
+            <button type="button" class="logout-btn" aria-label="Cerrar sesión"><svg aria-hidden="true" class="lucide lucide-log-out" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="m16 17 5-5-5-5" /> <path d="M21 12H9" /> <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /> </svg> Salir</button>
+        </div>
+        </div>
+    </nav>
+    
+<main class="page-container dashboard-container">
+        <div class="beneficiario-card" style="max-width: 600px; margin: 40px auto 0;">
+            <div class="detail-header">
+                <h2>Donación #2</h2>
+                <time class="notif-time">4 abril 2026</time>
+            </div>
+
+            <div class="solicitud-item" style="border-bottom: 1px solid var(--color-borde); margin-bottom: 15px;">
+                <span>4 uds. - Sillas</span>
+                <button class="btn-add-photo">+ Añadir foto</button>
+            </div>
+            <div class="solicitud-item" style="margin-bottom: 30px;">
+                <span>2 kg - Fideos</span>
+                <button class="btn-add-photo">+ Añadir foto</button>
+            </div>
+
+            <div style="margin-bottom: 30px;">
+                <label class="form-label" style="display:block; padding-top:0;">Comentario</label>
+                <textarea class="pill-input" rows="4" style="border-radius: 8px; width: 100%; resize: vertical;"></textarea>
+            </div>
+
+            <div class="notif-actions" style="justify-content: flex-end;">
+                <button type="button" class="btn-outline" id="btn-reportar">Reportar</button>
+                <button type="button" class="btn-solid-dark" id="btn-confirmar-recepcion">Confirmar</button>
+            </div>
+        </div>
+    </main>
+<!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-left">
+            <p>© 2026 DonaTrack - UTN Solidaria</p>
+        </div>
+        <div class="footer-right">
+            <a href="#">Términos y Condiciones</a>
+            <a href="#">Política de Privacidad</a>
+            <a href="#">Contacto</a>
+        </div>
+    </footer>
+
+    <script src="toast.js"></script>
+    <script src="logout.js"></script>
+    <script>
+        document.getElementById("btn-confirmar-recepcion").addEventListener("click", function () {
+            DonaToast.show("Recepción confirmada. ¡Gracias!", "exito");
+            setTimeout(function () { window.location.href = "dashboard-beneficiario-estado.html"; }, 900);
+        });
+        document.getElementById("btn-reportar").addEventListener("click", function () {
+            DonaToast.show("Reporte enviado al equipo de DonaTrack.", "info");
+        });
+    </script>
+    <script src="mobile-menu.js"></script>
+</body>
+</html>

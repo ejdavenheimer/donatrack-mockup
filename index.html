@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DonaTrack - Inicio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="tokens.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <span class="logo-icon"><span class="logo-img" role="img" aria-label="Logo DonaTrack"></span></span>
+            <h1>DonaTrack</h1>
+        </div>
+        <nav aria-label="Navegación principal">
+            <div class="mobile-drawer">
+            <div class="mobile-drawer-title"><h3>Menú</h3><button type="button" class="menu-cerrar" aria-label="Cerrar menú"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html" class="active" aria-current="page">Inicio</a></li>
+                <li><a href="donaciones.html">Donaciones</a></li>
+                <li><a href="crear-cuenta.html">Crear cuenta</a></li>
+                <li><a href="ingresar.html">Ingresar</a></li>
+            </ul>
+        </div>
+        </nav>
+    <button type="button" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="M4 6h16"/><path d="M4 18h16"/></svg></button>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <p class="eyebrow">Universidad Tecnológica Nacional · UTN Solidaria</p>
+                <h2>Una donación deja de ser un gesto cuando se puede verificar.</h2>
+                <div class="separator"></div>
+                <p class="lede">DonaTrack registra y audita el recorrido de cada bien que recibe la organización, desde su ingreso al depósito hasta la entrega a la entidad beneficiaria.</p>
+                <div class="hero-actions">
+                    <button class="btn-primary">Sumarse</button>
+                    <a class="btn-link" href="donaciones.html">Ver donaciones</a>
+                </div>
+                <ul class="trust">
+                    <li>Trazabilidad auditada</li>
+                    <li>Datos protegidos</li>
+                    <li>1.284 donaciones en 2026</li>
+                </ul>
+            </div>
+            <figure class="hero-media">
+                <img src="https://images.pexels.com/photos/6591154/pexels-photo-6591154.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Voluntarios de UTN Solidaria clasificando donaciones de alimentos sobre una mesa">
+            </figure>
+        </section>
+
+        <section class="donaciones">
+            <div class="section-header">
+                <h2>Donaciones destacadas</h2>
+                <div class="separator-left"></div>
+                <p class="section-sub">Lo que hoy más necesitan las entidades beneficiarias que acompañamos.</p>
+            </div>
+
+            <div class="grid-container">
+                <article class="card">
+                    <div class="card-image"><img src="https://images.pexels.com/photos/7156158/pexels-photo-7156158.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Voluntario empaquetando alimentos no perecederos en una caja de donaciones" loading="lazy"></div>
+                    <div class="card-body">
+                        <h3>Alimentos no perecederos</h3>
+                        <p>Fideos, arroz, conservas y legumbres para las viandas semanales.</p>
+                        <span class="card-meta">Alta demanda</span>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card-image"><img src="https://images.pexels.com/photos/6994868/pexels-photo-6994868.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Voluntario clasificando prendas de abrigo donadas" loading="lazy"></div>
+                    <div class="card-body">
+                        <h3>Ropa y abrigo</h3>
+                        <p>Prendas en buen estado para la campaña de invierno.</p>
+                        <span class="card-meta">Campaña activa</span>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card-image"><img src="https://images.pexels.com/photos/14642652/pexels-photo-14642652.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Pila de frazadas tejidas dobladas y listas para entregar" loading="lazy"></div>
+                    <div class="card-body">
+                        <h3>Colchones y frazadas</h3>
+                        <p>Descanso digno para familias y hogares acompañados.</p>
+                        <span class="card-meta">Urgente</span>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card-image"><img src="https://images.pexels.com/photos/6646987/pexels-photo-6646987.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Voluntaria sirviendo sopa caliente con un cucharón" loading="lazy"></div>
+                    <div class="card-body">
+                        <h3>Viandas solidarias</h3>
+                        <p>Reparto semanal en los alrededores de la sede Medrano.</p>
+                        <span class="card-meta">Todas las semanas</span>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card-image"><img src="https://images.pexels.com/photos/6192763/pexels-photo-6192763.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Cuadernos y útiles escolares en tonos pastel sobre una mesa" loading="lazy"></div>
+                    <div class="card-body">
+                        <h3>Útiles escolares</h3>
+                        <p>Materiales para instituciones educativas y comunitarias.</p>
+                        <span class="card-meta">Vuelta a clases</span>
+                    </div>
+                </article>
+
+                <a class="card card-more" href="donaciones.html" aria-label="Ver más donaciones">
+                    <div class="circle-icon">+</div>
+                    <p>Ver más donaciones</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-left">
+            <p>© 2026 DonaTrack — UTN Solidaria</p>
+        </div>
+        <div class="footer-right">
+            <a href="#">Términos y Condiciones</a>
+            <a href="#">Política de Privacidad</a>
+            <a href="#">Contacto</a>
+        </div>
+    </footer>
+
+    <script src="mobile-menu.js"></script>
+</body>
+</html>

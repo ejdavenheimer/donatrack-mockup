@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DonaTrack - Administración | Estado</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="tokens.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dashboard-body">
+
+    <!-- BARRA DE NAVEGACIÓN PRINCIPAL (Admin) -->
+    <header class="navbar">
+        <div class="logo">
+            <span class="logo-icon"><span class="logo-img" role="img" aria-label="Logo DonaTrack"></span></span>
+            <h1>DONATRACK</h1>
+        </div>
+        <nav aria-label="Navegación principal">
+            <div class="mobile-drawer">
+            <div class="mobile-drawer-title"><h3>Menú</h3><button type="button" class="menu-cerrar" aria-label="Cerrar menú"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="donaciones.html">Donaciones</a></li>
+            </ul>
+        </div>
+        </nav>
+    <button type="button" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="M4 6h16"/><path d="M4 18h16"/></svg></button>
+    </header>
+
+    <!-- SUB-NAVEGACIÓN (Admin) -->
+    <nav class="sub-nav" aria-label="Navegación de administración">
+        <button type="button" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="sub-nav-links"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="M4 6h16"/><path d="M4 18h16"/></svg></button>
+        <div class="mobile-drawer">
+            <div class="mobile-drawer-title"><h3>Menú</h3><button type="button" class="menu-cerrar" aria-label="Cerrar menú"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div>
+            <ul class="sub-nav-links" id="sub-nav-links">
+            <li><a href="dashboard-admin-registrar.html">Registrar</a></li>
+            <li><a href="dashboard-admin-estado.html" class="active" aria-current="page">Estado</a></li>
+            <li><a href="dashboard-admin-asignaciones.html">Asignaciones</a></li>
+            <li><a href="dashboard-admin-camiones.html">Camiones</a></li>
+            <li><a href="dashboard-admin-ranking.html">Ranking</a></li>
+            <li><a href="dashboard-admin-importar.html">Importar</a></li>
+        </ul>
+        <div class="user-menu">
+            <a href="#" class="user-link">ADMIN <span aria-hidden="true"><svg aria-hidden="true" class="lucide lucide-user" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /> <circle cx="12" cy="7" r="4" /> </svg></span></a>
+            <button type="button" class="logout-btn" aria-label="Cerrar sesión"><svg aria-hidden="true" class="lucide lucide-log-out" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="m16 17 5-5-5-5" /> <path d="M21 12H9" /> <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /> </svg> Salir</button>
+        </div>
+        </div>
+    </nav>
+
+    <main class="page-container dashboard-container admin-container">
+        
+        <!-- ENCABEZADO DE SECCIÓN Y FILTRO -->
+        <header class="admin-header-row" style="align-items: center;">
+            <div class="admin-header-text">
+                <h2>Estado de Donaciones</h2>
+                <p>Administra el inventario en depósito y actualiza donaciones vencidas.</p>
+            </div>
+            <div>
+                <button type="button" class="btn-outline-gray" style="padding: 10px 20px;">
+                    <span aria-hidden="true">▽</span> Filtrar
+                </button>
+            </div>
+        </header>
+
+        <!-- TABLA GRID DE DONACIONES -->
+        <div class="admin-table-container">
+            
+            <!-- Encabezados de tabla -->
+            <div class="admin-table-header" aria-hidden="true">
+                <div>DONACIÓN</div>
+                <div>DONANTE</div>
+                <div>INGRESO</div>
+                <div>VENCIMIENTO</div>
+                <div>ESTADO</div>
+                <div>ACCIÓN</div>
+            </div>
+
+            <!-- Fila 1 -->
+            <article class="admin-table-row">
+                <div class="col-donacion">
+                    <div class="item-icon-box"><svg aria-hidden="true" class="lucide lucide-package" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z" /> <path d="M12 22V12" /> <polyline points="3.29 7 12 12 20.71 7" /> <path d="m7.5 4.27 9 5.15" /> </svg></div>
+                    <div>
+                        <strong>Yogur de Vainilla</strong>
+                        <span class="sub-text">20 Litros</span>
+                    </div>
+                </div>
+                <div class="col-donante">Lácteos San Martín</div>
+                <div class="col-fecha text-muted">20/09/2026</div>
+                <div class="col-vencimiento text-danger">
+                    <span aria-hidden="true">⏱</span> 05/10/2026
+                </div>
+                <div class="col-estado">
+                    <span class="badge-status success">Disponible</span>
+                </div>
+                <div class="col-accion">
+                    <select class="admin-select-action danger-action">
+                        <option>Marcar como vencida</option>
+                    </select>
+                </div>
+            </article>
+
+            <!-- Fila 2 -->
+            <article class="admin-table-row">
+                <div class="col-donacion">
+                    <div class="item-icon-box"><svg aria-hidden="true" class="lucide lucide-package" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z" /> <path d="M12 22V12" /> <polyline points="3.29 7 12 12 20.71 7" /> <path d="m7.5 4.27 9 5.15" /> </svg></div>
+                    <div>
+                        <strong>Fideos Secos</strong>
+                        <span class="sub-text">100 Kg</span>
+                    </div>
+                </div>
+                <div class="col-donante">Juan Perez</div>
+                <div class="col-fecha text-muted">15/09/2026</div>
+                <div class="col-vencimiento">20/12/2026</div>
+                <div class="col-estado">
+                    <span class="badge-status success">Disponible</span>
+                </div>
+                <div class="col-accion">
+                    <select class="admin-select-action">
+                        <option>Asignada</option>
+                    </select>
+                </div>
+            </article>
+
+            <!-- Fila 3 -->
+            <article class="admin-table-row">
+                <div class="col-donacion">
+                    <div class="item-icon-box"><svg aria-hidden="true" class="lucide lucide-package" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z" /> <path d="M12 22V12" /> <polyline points="3.29 7 12 12 20.71 7" /> <path d="m7.5 4.27 9 5.15" /> </svg></div>
+                    <div>
+                        <strong>Panificados Surtidos</strong>
+                        <span class="sub-text">15 Kg</span>
+                    </div>
+                </div>
+                <div class="col-donante">Panadería El Sol</div>
+                <div class="col-fecha text-muted">01/10/2026</div>
+                <div class="col-vencimiento text-warning">
+                    <span aria-hidden="true">⏱</span> 08/10/2026
+                </div>
+                <div class="col-estado">
+                    <span class="badge-status success">Disponible</span>
+                </div>
+                <div class="col-accion">
+                    <select class="admin-select-action">
+                        <option>Entregada</option>
+                    </select>
+                </div>
+            </article>
+
+            <!-- Fila 4 (Vencida - Opacidad reducida) -->
+            <article class="admin-table-row item-disabled">
+                <div class="col-donacion">
+                    <div class="item-icon-box"><svg aria-hidden="true" class="lucide lucide-package" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z" /> <path d="M12 22V12" /> <polyline points="3.29 7 12 12 20.71 7" /> <path d="m7.5 4.27 9 5.15" /> </svg></div>
+                    <div>
+                        <strong>Leche Larga Vida</strong>
+                        <span class="sub-text">50 Litros</span>
+                    </div>
+                </div>
+                <div class="col-donante">Supermercado VEA</div>
+                <div class="col-fecha text-muted">10/08/2026</div>
+                <div class="col-vencimiento text-muted">01/10/2026</div>
+                <div class="col-estado">
+                    <span class="badge-status danger">Vencida</span>
+                </div>
+                <div class="col-accion">
+                    <select class="admin-select-action" disabled>
+                        <option>Marcar como vencida</option>
+                    </select>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-left">
+            <p>© 2026 DonaTrack - UTN Solidaria</p>
+        </div>
+        <div class="footer-right">
+            <a href="#">Términos y Condiciones</a>
+            <a href="#">Política de Privacidad</a>
+            <a href="#">Contacto</a>
+        </div>
+    </footer>
+    <script src="dropdowns.js"></script>
+    <script src="toast.js"></script>
+    <script src="logout.js"></script>
+    <script>
+        document.querySelectorAll(".admin-select-action").forEach(function (sel) {
+            sel.addEventListener("change", function () {
+                var valor = sel.options[sel.selectedIndex].textContent.trim();
+                var tipo = /vencid/i.test(valor) ? "error" : "exito";
+                DonaToast.show('Estado actualizado a "' + valor + '".', tipo);
+            });
+        });
+    </script>
+    <script src="mobile-menu.js"></script>
+</body>
+</html>

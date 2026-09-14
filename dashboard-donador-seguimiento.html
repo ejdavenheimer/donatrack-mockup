@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DonaTrack - Seguimiento</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="tokens.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dashboard-body">
+
+    <!-- BARRA DE NAVEGACIÓN PRINCIPAL -->
+    <header class="navbar">
+        <div class="logo">
+            <span class="logo-icon"><span class="logo-img" role="img" aria-label="Logo DonaTrack"></span></span>
+            <h1>DONATRACK</h1>
+        </div>
+        <nav aria-label="Navegación principal">
+            <div class="mobile-drawer">
+            <div class="mobile-drawer-title"><h3>Menú</h3><button type="button" class="menu-cerrar" aria-label="Cerrar menú"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="donaciones.html">Donaciones</a></li>
+            </ul>
+        </div>
+        </nav>
+    <button type="button" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="M4 6h16"/><path d="M4 18h16"/></svg></button>
+    </header>
+
+    <!-- SUB-NAVEGACIÓN (Menú del Dashboard) -->
+    <nav class="sub-nav" aria-label="Navegación de usuario">
+        <button type="button" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="sub-nav-links"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="M4 6h16"/><path d="M4 18h16"/></svg></button>
+        <div class="mobile-drawer">
+            <div class="mobile-drawer-title"><h3>Menú</h3><button type="button" class="menu-cerrar" aria-label="Cerrar menú"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div>
+            <ul class="sub-nav-links" id="sub-nav-links">
+            <li><a href="dashboard-donador.html">Mis Donaciones</a></li>
+            <li><a href="dashboard-donador-entidades.html">Entidades</a></li>
+            <li><a href="dashboard-donador-incentivos.html">Incentivos</a></li>
+            <li><a href="dashboard-donador-notificaciones.html">Notificaciones</a></li>
+            <!-- Seguimiento ahora es el activo -->
+            <li><a href="dashboard-donador-seguimiento.html" class="active" aria-current="page">Seguimiento</a></li>
+        </ul>
+        <div class="user-menu">
+            <a href="#" class="user-link">DONANTE <span aria-hidden="true"><svg aria-hidden="true" class="lucide lucide-user" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /> <circle cx="12" cy="7" r="4" /> </svg></span></a>
+            <button type="button" class="logout-btn" aria-label="Cerrar sesión"><svg aria-hidden="true" class="lucide lucide-log-out" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="m16 17 5-5-5-5" /> <path d="M21 12H9" /> <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /> </svg> Salir</button>
+        </div>
+        </div>
+    </nav>
+
+    <!-- CONTENIDO DEL DASHBOARD: SEGUIMIENTO -->
+    <main class="page-container dashboard-container">
+        
+        <!-- SECCIÓN: MAPA EN TIEMPO REAL -->
+        <section class="tracking-section" aria-labelledby="titulo-mapa">
+            <h2 id="titulo-mapa" class="tracking-title">Seguimiento en tiempo Real</h2>
+            
+            <div class="tracking-map" aria-label="Mapa de seguimiento de entregas">
+                <iframe class="map-iframe" src="https://www.openstreetmap.org/export/embed.html?bbox=-58.4550%2C-34.6450%2C-58.3550%2C-34.5650&layer=mapnik" title="Mapa interactivo de Buenos Aires" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <!-- Marcador de Camión (Punto azul) -->
+                <div class="pin-truck" style="top: 65%; left: 35%;" aria-label="Posición del camión"></div>
+                <!-- Marcador de Destino (Pin rojo) -->
+                <div class="pin-dest" style="top: 45%; left: 75%;" aria-label="Punto de destino"><svg aria-hidden="true" class="lucide lucide-map-pin" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /> <circle cx="12" cy="10" r="3" /> </svg></div>
+            </div>
+
+            <div class="tracking-legend" aria-hidden="true">
+                <div class="legend-item">
+                    <span class="legend-color color-blue"></span>
+                    <span>Camion</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color color-red"></span>
+                    <span>Destino</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: ENTREGAS ACTIVAS -->
+        <section class="deliveries-section" aria-labelledby="titulo-entregas">
+            <!-- Reutilizamos la clase subrayada que armamos antes -->
+            <h2 id="titulo-entregas" class="section-title-underlined">Mis entregas activas</h2>
+            
+            <div class="deliveries-list">
+                
+                <!-- Entrega 1 -->
+                <article class="delivery-card">
+                    <header class="delivery-header">
+                        <h3>Fideos Spaghetti - 15 Ks.</h3>
+                        <span class="status-badge">En traslado</span>
+                    </header>
+                    <div class="delivery-body">
+                        <p class="delivery-dest">Destino : - - - - - -</p>
+                        <p class="delivery-truck">
+                            <span class="truck-icon" aria-hidden="true"><svg aria-hidden="true" class="lucide lucide-truck" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" /> <path d="M15 18H9" /> <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" /> <circle cx="17" cy="18" r="2" /> <circle cx="7" cy="18" r="2" /> </svg></span> 
+                            Camion AB 123 CD en Camino.
+                        </p>
+                        <p class="delivery-eta">Llegada Estimada : ~20 minutos.</p>
+                    </div>
+                </article>
+
+                <!-- Entrega 2 -->
+                <article class="delivery-card">
+                    <header class="delivery-header">
+                        <h3>Ropa de abrigo - 2 uds.</h3>
+                        <span class="status-badge">Planificado</span>
+                    </header>
+                    <div class="delivery-body">
+                        <p class="delivery-dest">Destino : - - - - - -</p>
+                        <p class="delivery-truck">
+                            <span class="truck-icon" aria-hidden="true"><svg aria-hidden="true" class="lucide lucide-truck" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" /> <path d="M15 18H9" /> <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" /> <circle cx="17" cy="18" r="2" /> <circle cx="7" cy="18" r="2" /> </svg></span> 
+                            Camion EF en Camino.
+                        </p>
+                        <p class="delivery-eta">Salida Planificada : mañana 8:00hs</p>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-left">
+            <p>© 2026 DonaTrack - UTN Solidaria</p>
+        </div>
+        <div class="footer-right">
+            <a href="#">Términos y Condiciones</a>
+            <a href="#">Política de Privacidad</a>
+            <a href="#">Contacto</a>
+        </div>
+    </footer>
+
+    <script src="toast.js"></script>
+    <script src="logout.js"></script>
+    <script src="mobile-menu.js"></script>
+</body>
+</html>

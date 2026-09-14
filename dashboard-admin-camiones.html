@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DonaTrack - Administración | Camiones</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="tokens.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dashboard-body">
+
+    <!-- BARRA DE NAVEGACIÓN PRINCIPAL -->
+    <header class="navbar">
+        <div class="logo">
+            <span class="logo-icon"><span class="logo-img" role="img" aria-label="Logo DonaTrack"></span></span>
+            <h1>DONATRACK</h1>
+        </div>
+        <nav aria-label="Navegación principal">
+            <div class="mobile-drawer">
+            <div class="mobile-drawer-title"><h3>Menú</h3><button type="button" class="menu-cerrar" aria-label="Cerrar menú"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="donaciones.html">Donaciones</a></li>
+            </ul>
+        </div>
+        </nav>
+    <button type="button" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="M4 6h16"/><path d="M4 18h16"/></svg></button>
+    </header>
+
+    <!-- SUB-NAVEGACIÓN (Admin) -->
+    <nav class="sub-nav" aria-label="Navegación de administración">
+        <button type="button" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="sub-nav-links"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="M4 6h16"/><path d="M4 18h16"/></svg></button>
+        <div class="mobile-drawer">
+            <div class="mobile-drawer-title"><h3>Menú</h3><button type="button" class="menu-cerrar" aria-label="Cerrar menú"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div>
+            <ul class="sub-nav-links" id="sub-nav-links">
+            <li><a href="dashboard-admin-registrar.html">Registrar</a></li>
+            <li><a href="dashboard-admin-estado.html">Estado</a></li>
+            <li><a href="dashboard-admin-asignaciones.html">Asignaciones</a></li>
+            <li><a href="dashboard-admin-camiones.html" class="active" aria-current="page">Camiones</a></li>
+            <li><a href="dashboard-admin-ranking.html">Ranking</a></li>
+            <li><a href="dashboard-admin-importar.html">Importar</a></li>
+        </ul>
+        <div class="user-menu">
+            <a href="#" class="user-link">ADMIN <span aria-hidden="true"><svg aria-hidden="true" class="lucide lucide-user" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /> <circle cx="12" cy="7" r="4" /> </svg></span></a>
+            <button type="button" class="logout-btn" aria-label="Cerrar sesión"><svg aria-hidden="true" class="lucide lucide-log-out" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="m16 17 5-5-5-5" /> <path d="M21 12H9" /> <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /> </svg> Salir</button>
+        </div>
+        </div>
+    </nav>
+
+    <main class="page-container dashboard-container admin-container">
+        
+        <!-- ENCABEZADO DE SECCIÓN -->
+        <header class="admin-header-row" style="align-items: center;">
+            <div class="admin-header-text">
+                <h2>Camiones Disponibles</h2>
+                <p>Administra los vehículos y su disponibilidad para la entrega de donaciones.</p>
+            </div>
+            <div>
+                <button type="button" class="btn-solid-black" id="btn-nuevo-camion">+ Registrar Camión</button>
+            </div>
+        </header>
+
+        <!-- TABLA GRID DE CAMIONES -->
+        <div class="admin-table-container">
+            
+            <!-- Encabezados de tabla -->
+            <div class="trucks-table-header" aria-hidden="true">
+                <div>VEHÍCULO / PATENTE</div>
+                <div>CAPACIDAD</div>
+                <div>CONDUCTOR</div>
+                <div>ESTADO</div>
+                <div class="col-accion">ACCIONES</div>
+            </div>
+
+            <!-- Fila 1 (Disponible) -->
+            <article class="trucks-table-row">
+                <div class="col-donacion">
+                    <div class="item-icon-box box-gray"><svg aria-hidden="true" class="lucide lucide-truck" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" /> <path d="M15 18H9" /> <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" /> <circle cx="17" cy="18" r="2" /> <circle cx="7" cy="18" r="2" /> </svg></div>
+                    <div>
+                        <strong>Furgón Mercedes-Benz Sprinter</strong>
+                        <span class="sub-text">Patente: AB 123 CD</span>
+                    </div>
+                </div>
+                <div>3.5 Toneladas</div>
+                <div class="driver-info">
+                    <div class="driver-avatar"><img src="https://i.pravatar.cc/64?img=12" alt="" aria-hidden="true" loading="lazy"></div>
+                    <span>Marcos Silva</span>
+                </div>
+                <div>
+                    <span class="badge-status success">Disponible</span>
+                </div>
+                <div class="col-accion">
+                    <button type="button" class="btn-action-outline"><svg aria-hidden="true" class="lucide lucide-pencil" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" /> <path d="m15 5 4 4" /> </svg> Editar</button>
+                </div>
+            </article>
+
+            <!-- Fila 2 (En Ruta) -->
+            <article class="trucks-table-row">
+                <div class="col-donacion">
+                    <div class="item-icon-box box-blue"><svg aria-hidden="true" class="lucide lucide-truck" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" /> <path d="M15 18H9" /> <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" /> <circle cx="17" cy="18" r="2" /> <circle cx="7" cy="18" r="2" /> </svg></div>
+                    <div>
+                        <strong>Camioneta Ford F-150</strong>
+                        <span class="sub-text">Patente: AA 456 BB</span>
+                    </div>
+                </div>
+                <div>1.0 Tonelada</div>
+                <div class="driver-info">
+                    <div class="driver-avatar"><img src="https://i.pravatar.cc/64?img=47" alt="" aria-hidden="true" loading="lazy"></div>
+                    <span>Laura Gómez</span>
+                </div>
+                <div>
+                    <span class="badge-status info">En Ruta</span>
+                </div>
+                <div class="col-accion">
+                    <button type="button" class="btn-action-outline"><svg aria-hidden="true" class="lucide lucide-pencil" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" /> <path d="m15 5 4 4" /> </svg> Editar</button>
+                </div>
+            </article>
+
+            <!-- Fila 3 (Mantenimiento - Opacidad reducida) -->
+            <article class="trucks-table-row item-disabled">
+                <div class="col-donacion">
+                    <div class="item-icon-box box-yellow"><svg aria-hidden="true" class="lucide lucide-truck" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" /> <path d="M15 18H9" /> <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" /> <circle cx="17" cy="18" r="2" /> <circle cx="7" cy="18" r="2" /> </svg></div>
+                    <div>
+                        <strong>Camión Iveco Tector</strong>
+                        <span class="sub-text">Patente: AE 789 ZZ</span>
+                    </div>
+                </div>
+                <div>15.0 Toneladas</div>
+                <div class="text-muted">--</div>
+                <div>
+                    <span class="badge-status warning">Mantenimiento</span>
+                </div>
+                <div class="col-accion">
+                    <button type="button" class="btn-action-outline" disabled><svg aria-hidden="true" class="lucide lucide-pencil" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" /> <path d="m15 5 4 4" /> </svg> Editar</button>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-left"><p>© 2026 DonaTrack - UTN Solidaria</p></div>
+        <div class="footer-right">
+            <a href="#">Términos y Condiciones</a>
+            <a href="#">Política de Privacidad</a>
+            <a href="#">Contacto</a>
+        </div>
+    </footer>
+
+    <!-- MODAL: Editar camión -->
+    <div class="modal-overlay" id="modal-camion" hidden>
+        <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-camion-titulo">
+            <div class="modal-header">
+                <h3 id="modal-camion-titulo">Editar camión</h3>
+                <button type="button" class="modal-cerrar" data-modal-cerrar aria-label="Cerrar" title="Cerrar">
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </button>
+            </div>
+            <form class="modal-form admin-grid-form" id="form-modal-camion">
+                <div class="form-group full-width">
+                    <label for="mc-vehiculo">Vehículo</label>
+                    <input type="text" id="mc-vehiculo" class="admin-input">
+                </div>
+                <div class="form-group">
+                    <label for="mc-patente">Patente</label>
+                    <input type="text" id="mc-patente" class="admin-input">
+                </div>
+                <div class="form-group">
+                    <label for="mc-capacidad">Capacidad</label>
+                    <input type="text" id="mc-capacidad" class="admin-input">
+                </div>
+                <div class="form-group">
+                    <label for="mc-conductor">Conductor</label>
+                    <input type="text" id="mc-conductor" class="admin-input">
+                </div>
+                <div class="form-group">
+                    <label for="mc-estado">Estado</label>
+                    <select id="mc-estado" class="admin-input">
+                        <option>Disponible</option>
+                        <option>En Ruta</option>
+                        <option>Mantenimiento</option>
+                    </select>
+                </div>
+                <div class="form-actions right full-width">
+                    <button type="button" class="btn-outline-gray" data-modal-cerrar>Cancelar</button>
+                    <button type="submit" class="btn-solid-black">Guardar cambios</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL: Registrar camión nuevo -->
+    <div class="modal-overlay" id="modal-nuevo-camion" hidden>
+        <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-nuevo-camion-titulo">
+            <div class="modal-header">
+                <h3 id="modal-nuevo-camion-titulo">Registrar camión</h3>
+                <button type="button" class="modal-cerrar" data-modal-cerrar aria-label="Cerrar" title="Cerrar">
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </button>
+            </div>
+            <form class="modal-form admin-grid-form" id="form-modal-nuevo-camion">
+                <div class="form-group full-width">
+                    <label for="nc-vehiculo">Vehículo</label>
+                    <input type="text" id="nc-vehiculo" class="admin-input" placeholder="Ej: Furgón Renault Master">
+                </div>
+                <div class="form-group">
+                    <label for="nc-patente">Patente</label>
+                    <input type="text" id="nc-patente" class="admin-input" placeholder="AB 123 CD">
+                </div>
+                <div class="form-group">
+                    <label for="nc-capacidad">Capacidad</label>
+                    <input type="text" id="nc-capacidad" class="admin-input" placeholder="Ej: 2.0 Toneladas">
+                </div>
+                <div class="form-group">
+                    <label for="nc-conductor">Conductor</label>
+                    <input type="text" id="nc-conductor" class="admin-input" placeholder="Opcional">
+                </div>
+                <div class="form-group">
+                    <label for="nc-estado">Estado</label>
+                    <select id="nc-estado" class="admin-input">
+                        <option>Disponible</option>
+                        <option>En Ruta</option>
+                        <option>Mantenimiento</option>
+                    </select>
+                </div>
+                <div class="form-actions right full-width">
+                    <button type="button" class="btn-outline-gray" data-modal-cerrar>Cancelar</button>
+                    <button type="submit" class="btn-solid-black">Registrar camión</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="dropdowns.js"></script>
+    <script src="toast.js"></script>
+    <script src="logout.js"></script>
+    <script src="modal-camiones.js"></script>
+    <script src="mobile-menu.js"></script>
+</body>
+</html>

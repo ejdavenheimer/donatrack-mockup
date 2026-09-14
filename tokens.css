@@ -1,0 +1,207 @@
+/* =============================================================
+   DONATRACK · TOKENS DE DISEÑO
+   Sistema "Cátedra" — marfil, tinta y borgoña.
+   Única fuente de verdad: ninguna página debe hardcodear valores.
+   Documentación de uso: front-end/STYLE.md
+   ============================================================= */
+
+:root{
+
+  /* ---------------------------------------------------------
+     1. PALETA CRUDA — no usar directamente en componentes.
+        Siempre pasar por los tokens semánticos del punto 2.
+     --------------------------------------------------------- */
+  --marfil-50:#FDFCFA;
+  --marfil-100:#FBFAF7;   /* fondo de página */
+  --marfil-200:#F4F1EA;
+  --blanco:#FFFFFF;
+
+  --tinta-900:#1A1A17;    /* texto principal */
+  --tinta-600:#57534B;    /* texto secundario sobre foto */
+  --tinta-500:#6E6A61;    /* texto secundario sobre fondo plano */
+
+  --linea-200:#E4E0D6;    /* filetes y bordes */
+
+  --borgona-700:#61222D;  /* estado hover */
+  --borgona-600:#7B2D3B;  /* acento de marca */
+  --borgona-100:#F4ECED;  /* fondo teñido */
+
+  /* ---------------------------------------------------------
+     2. COLOR SEMÁNTICO — esto es lo que usan los componentes
+     --------------------------------------------------------- */
+  --color-fondo:var(--marfil-100);
+  --color-superficie:var(--blanco);
+  --color-superficie-alt:var(--marfil-200);
+
+  --color-texto:var(--tinta-900);
+  --color-texto-2:var(--tinta-500);       /* sobre fondo plano */
+  --color-texto-sobre-foto:var(--tinta-600); /* +contraste, para el hero */
+  --color-texto-invertido:var(--marfil-100);
+
+  --color-borde:var(--linea-200);
+  --color-borde-campo:#8F8874; /* borde de inputs/selects: ≥3:1 (WCAG 1.4.11), más marcado que --color-borde decorativo */
+  --color-regla-fuerte:var(--tinta-900);  /* filete de 2px de sección */
+
+  --color-acento:var(--borgona-600);
+  --color-acento-hover:var(--borgona-700);
+  --color-acento-tenue:var(--borgona-100);
+  --color-divisor-inverso:rgba(251,250,247,.32); /* filete sutil sobre fondos oscuros/de acento (ej. sub-nav) */
+
+  /* Estados — usados en badges, puntos y filas de tabla de los dashboards */
+  --color-exito:#2E6B4F;
+  --color-exito-tenue:#E7F0EA;
+  --color-alerta:#8A6516;
+  --color-alerta-tenue:#F5EEDC;
+  --color-error:#A9351F;
+  --color-error-tenue:#F5E5E1;
+  --color-info:#3A5A7A;
+  --color-info-tenue:#E4EAF0;
+
+  /* Ranking: únicos tres lugares donde se usa color "de premio" */
+  --color-oro:#8A6B1F;
+  --color-oro-tenue:#F3EACB;
+  --color-plata:#5B6570;
+  --color-plata-tenue:#E6E8EA;
+  --color-bronce:#8A5A34;
+  --color-bronce-tenue:#EFDFCB;
+
+  /* ---------------------------------------------------------
+     3. TIPOGRAFÍA
+     --------------------------------------------------------- */
+  --fuente-titulo:'Newsreader',Georgia,'Times New Roman',serif;
+  --fuente-texto:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+
+  /* Escala — nombrada por ROL, no por tamaño */
+  --fs-display:clamp(2.5rem,5.4vw,4.05rem);  /* h2 de portada */
+  --fs-titulo:clamp(1.85rem,3.6vw,2.5rem);   /* h2 de sección */
+  --fs-marca:1.44rem;                        /* DonaTrack en la barra */
+  --fs-subtitulo:1.32rem;                    /* h3 de tarjeta */
+  --fs-lede:1.1rem;                          /* bajada de portada */
+  --fs-base:1rem;
+  --fs-sm:.98rem;                            /* texto de apoyo */
+  --fs-card:.93rem;                          /* cuerpo de tarjeta */
+  --fs-nav:.875rem;                          /* navegación y botones */
+  --fs-etiqueta:.8rem;                       /* versalitas espaciadas */
+  --fs-micro:.75rem;                         /* metadato de tarjeta */
+
+  --lh-display:1.1;
+  --lh-titulo:1.25;
+  --lh-base:1.65;
+
+  --ls-display:-.018em;
+  --ls-titulo:-.015em;
+  --ls-marca:-.005em;
+  --ls-nav:.055em;
+  --ls-boton:.11em;
+  --ls-meta:.16em;
+  --ls-eyebrow:.24em;
+
+  --peso-titulo:400;   /* Newsreader se usa siempre en regular */
+  --peso-normal:400;
+  --peso-medio:500;
+  --peso-fuerte:600;
+
+  /* ---------------------------------------------------------
+     4. ESPACIADO — escala de 4px. Usar SIEMPRE un escalón.
+     --------------------------------------------------------- */
+  --esp-05:2px;  /* medio escalón: sólo para trazos finos */
+  --esp-1:4px;
+  --esp-2:8px;
+  --esp-3:12px;
+  --esp-4:16px;
+  --esp-5:20px;
+  --esp-6:24px;
+  --esp-7:32px;
+  --esp-8:40px;
+  --esp-9:48px;
+  --esp-10:64px;
+  --esp-11:80px;
+  --esp-12:96px;
+
+  /* ---------------------------------------------------------
+     5. TRAZO, RADIO Y SOMBRA
+     --------------------------------------------------------- */
+  --borde-fino:1px;
+  --borde-grueso:2px;
+
+  --radio-nulo:0;        /* por defecto: Cátedra no usa esquinas redondeadas */
+  --radio-sutil:2px;      /* tarjetas de aplicación (dashboards) */
+  --radio-pastilla:999px; /* ÚNICA excepción: badges, toggles, buscador, paginación */
+  --radio-circulo:50%;
+
+  --sombra-nula:none;    /* por defecto: la jerarquía la dan los filetes */
+  --sombra-sutil:0 1px 2px rgba(26,26,23,.04);
+  --sombra-media:0 8px 24px rgba(26,26,23,.07);
+  --sombra-elevada:0 18px 42px rgba(26,26,23,.10);
+
+  /* ---------------------------------------------------------
+     6. MOVIMIENTO
+     --------------------------------------------------------- */
+  --trans-rapida:.2s ease;
+  --trans-media:.25s ease;
+  --trans-imagen:.6s cubic-bezier(.2,.6,.2,1);
+
+  /* ---------------------------------------------------------
+     7. DISPOSICIÓN
+     --------------------------------------------------------- */
+  --ancho-max:1280px;         /* páginas públicas (portada, donaciones) */
+  --ancho-dashboard:1180px;   /* dashboards de donador/beneficiario, más angostos */
+  --ancho-admin:1320px;       /* paneles de admin, necesitan más lugar para tablas */
+  --ancho-lectura:720px;      /* columna de texto de la portada */
+  --ancho-form-fila:160px;    /* ancho de la etiqueta en un form-row de dos columnas */
+  --margen-lateral:6%;
+
+  /* Anchos mínimos de columna en grillas auto-fit / auto-fill.
+     Cada uno es la MISMA decisión (col-min-tarjeta) aplicada a un
+     contenido distinto: no crear uno nuevo sin necesidad real. */
+  --col-min-tarjeta:268px;    /* tarjeta de donación con foto */
+  --col-min-stat:200px;       /* stat-card / solicitudes-grid */
+  --col-min-entidad:240px;    /* entity-card */
+  --col-min-mision:280px;     /* mission-card */
+  --tam-icono-circulo:52px;   /* tamaños de componente: NO usar la escala de espaciado */
+  --fs-icono:1.5rem;
+  --tam-logo:30px;            /* marca en la navbar (camión + corazón, necesita más alto que un glifo simple) */
+  --tam-logo-grande:64px;     /* marca en la portada de login/registro */
+  --alto-foto-tarjeta:216px;
+  --alto-min-tarjeta:290px;
+  --z-barra:50;
+
+  /* ---------------------------------------------------------
+     8. TRATAMIENTO DE LA FOTO DE PORTADA
+     --------------------------------------------------------- */
+  --foto-opacidad:.38;
+  --foto-filtro:saturate(1.7) contrast(1);
+  --foto-velo-centro:rgba(251,250,247,.84);
+  --foto-velo-medio:rgba(251,250,247,.28);
+  --foto-velo-nulo:rgba(251,250,247,0);
+  --foto-mascara:radial-gradient(118% 104% at 50% 44%,#000 26%,transparent 80%);
+
+  /* ---------------------------------------------------------
+     9. COMPONENTES DE APLICACIÓN (dashboards)
+        Los paneles internos son más densos que las páginas
+        públicas: usan --radio-sutil y --sombra-sutil en sus
+        tarjetas en vez de filetes, porque conviven con tablas
+        y necesitan separarse unas de otras sin sumar más líneas.
+     --------------------------------------------------------- */
+  --tam-avatar-sm:36px;    /* avatar en fila de tabla */
+  --tam-avatar-md:48px;    /* avatar de usuario seleccionado */
+  --tam-icono-caja:44px;   /* item-icon-box (📦, 🚚) */
+  --tam-punto-estado:8px;  /* status-dot */
+
+  --ancho-sidebar:300px;   /* columna de lista junto a un mapa */
+  --alto-mapa:360px;
+  --alto-mapa-lg:520px;
+
+  --borde-tabla:1px solid var(--color-borde);
+
+  /* Mapa real (Buenos Aires) usado en las 3 pantallas de mapa/seguimiento */
+  --imagen-mapa:url("https://static-maps.yandex.ru/1.x/?ll=-58.3960,-34.5950&z=13&size=650,450&l=map&lang=es_ES");
+
+  /* ---------------------------------------------------------
+     10. PUNTOS DE QUIEBRE
+        Referencia únicamente: CSS no admite var() dentro de
+        @media. Si cambiás uno, actualizá también las reglas.
+     --------------------------------------------------------- */
+  --bp-tablet:820px;
+  --bp-movil:600px;
+}

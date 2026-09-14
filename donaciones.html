@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DonaTrack - Donaciones</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="tokens.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- BARRA DE NAVEGACIÓN (Reutilizada) -->
+    <header class="navbar">
+        <div class="logo">
+            <span class="logo-icon"><span class="logo-img" role="img" aria-label="Logo DonaTrack"></span></span>
+            <h1>DonaTrack</h1>
+        </div>
+        <nav aria-label="Navegación principal">
+            <div class="mobile-drawer">
+            <div class="mobile-drawer-title"><h3>Menú</h3><button type="button" class="menu-cerrar" aria-label="Cerrar menú"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div>
+            <ul class="nav-links" id="nav-links">
+                <!-- Inicio te devuelve a la landing page -->
+                <li><a href="index.html">Inicio</a></li>
+                <!-- Donaciones está activo -->
+                <li><a href="donaciones.html" class="active" aria-current="page">Donaciones</a></li>
+                <li><a href="crear-cuenta.html">Crear cuenta</a></li>
+                <li><a href="ingresar.html">Ingresar</a></li>
+            </ul>
+        </div>
+        </nav>
+    <button type="button" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="M4 6h16"/><path d="M4 18h16"/></svg></button>
+    </header>
+
+    <main class="page-container">
+        <!-- ENCABEZADO DE SECCIÓN Y CONTROLES -->
+        <header class="section-top">
+            <div class="section-info">
+                <h2>Donaciones</h2>
+                <p>Explora las distintas campañas y organizaciones que necesitan tu ayuda en este momento.</p>
+            </div>
+            
+            <!-- Selector de Vista (Ahora son enlaces) -->
+            <div class="view-toggle" role="group" aria-label="Cambiar vista">
+                <!-- Tarjeta es la vista activa en este archivo -->
+                <a href="donaciones.html" class="toggle-btn active" aria-pressed="true" style="text-decoration: none;">
+                    <span aria-hidden="true"><svg aria-hidden="true" class="lucide lucide-layout-grid" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <rect width="7" height="7" x="3" y="3" rx="1" /> <rect width="7" height="7" x="14" y="3" rx="1" /> <rect width="7" height="7" x="14" y="14" rx="1" /> <rect width="7" height="7" x="3" y="14" rx="1" /> </svg></span> Tarjeta
+                </a>
+                <!-- Mapa te lleva al otro archivo -->
+                <a href="donaciones-mapa.html" class="toggle-btn" aria-pressed="false" style="text-decoration: none;">
+                    <span aria-hidden="true"><svg aria-hidden="true" class="lucide lucide-map" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z" /> <path d="M15 5.764v15" /> <path d="M9 3.236v15" /> </svg></span> Mapa
+                </a>
+            </div>
+        </header>
+
+        <!-- GRILLA DE DONACIONES -->
+        <section class="grid-container" aria-label="Listado de campañas">
+            <article class="card">
+                <div class="card-image"><img src="https://images.pexels.com/photos/7156158/pexels-photo-7156158.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Voluntario empaquetando alimentos no perecederos en una caja de donaciones" loading="lazy"></div>
+                <div class="card-body">
+                    <h3>Alimentos no perecederos</h3>
+                    <p>Fideos, arroz, conservas y legumbres para las viandas semanales.</p>
+                    <span class="card-meta">Alta demanda</span>
+                </div>
+            </article>
+            <article class="card">
+                <div class="card-image"><img src="https://images.pexels.com/photos/6994868/pexels-photo-6994868.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Voluntario clasificando prendas de abrigo donadas" loading="lazy"></div>
+                <div class="card-body">
+                    <h3>Ropa y abrigo</h3>
+                    <p>Prendas en buen estado para la campaña de invierno.</p>
+                    <span class="card-meta">Campaña activa</span>
+                </div>
+            </article>
+            <article class="card">
+                <div class="card-image"><img src="https://images.pexels.com/photos/14642652/pexels-photo-14642652.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Pila de frazadas tejidas dobladas y listas para entregar" loading="lazy"></div>
+                <div class="card-body">
+                    <h3>Colchones y frazadas</h3>
+                    <p>Descanso digno para familias y hogares acompañados.</p>
+                    <span class="card-meta">Urgente</span>
+                </div>
+            </article>
+            <article class="card">
+                <div class="card-image"><img src="https://images.pexels.com/photos/6646987/pexels-photo-6646987.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Voluntaria sirviendo sopa caliente con un cucharón" loading="lazy"></div>
+                <div class="card-body">
+                    <h3>Viandas solidarias</h3>
+                    <p>Reparto semanal en los alrededores de la sede Medrano.</p>
+                    <span class="card-meta">Todas las semanas</span>
+                </div>
+            </article>
+            <article class="card">
+                <div class="card-image"><img src="https://images.pexels.com/photos/6192763/pexels-photo-6192763.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Cuadernos y útiles escolares en tonos pastel sobre una mesa" loading="lazy"></div>
+                <div class="card-body">
+                    <h3>Útiles escolares</h3>
+                    <p>Materiales para instituciones educativas y comunitarias.</p>
+                    <span class="card-meta">Vuelta a clases</span>
+                </div>
+            </article>
+            <article class="card">
+                <div class="card-image"><img src="https://images.pexels.com/photos/29317942/pexels-photo-29317942.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Filas de sillas apiladas listas para donar" loading="lazy"></div>
+                <div class="card-body">
+                    <h3>Mobiliario</h3>
+                    <p>Sillas y muebles en buen estado para escuelas e instituciones.</p>
+                    <span class="card-meta">Recién ingresado</span>
+                </div>
+            </article>
+        </section>
+
+        <!-- PAGINACIÓN -->
+        <nav aria-label="Paginación de resultados" class="pagination">
+            <button class="page-item" aria-label="Página anterior">&lt;</button>
+            <button class="page-item active" aria-current="page">1</button>
+            <button class="page-item">2</button>
+            <button class="page-item">3</button>
+            <span class="page-ellipsis" aria-hidden="true">...</span>
+            <button class="page-item">8</button>
+            <button class="page-item" aria-label="Página siguiente">&gt;</button>
+        </nav>
+    </main>
+
+    <!-- FOOTER (Reutilizado) -->
+    <footer class="footer">
+        <div class="footer-left">
+            <p>© 2026 DonaTrack - UTN Solidaria</p>
+        </div>
+        <div class="footer-right">
+            <a href="#">Términos y Condiciones</a>
+            <a href="#">Política de Privacidad</a>
+            <a href="#">Contacto</a>
+        </div>
+    </footer>
+
+    <script src="mobile-menu.js"></script>
+</body>
+</html>

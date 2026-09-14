@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DonaTrack - Administración | Registrar Ingreso</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="tokens.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dashboard-body">
+
+    <!-- BARRA DE NAVEGACIÓN PRINCIPAL (Admin) -->
+    <header class="navbar">
+        <div class="logo">
+            <span class="logo-icon"><span class="logo-img" role="img" aria-label="Logo DonaTrack"></span></span>
+            <h1>DONATRACK</h1>
+        </div>
+        <nav aria-label="Navegación principal">
+            <div class="mobile-drawer">
+            <div class="mobile-drawer-title"><h3>Menú</h3><button type="button" class="menu-cerrar" aria-label="Cerrar menú"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <!-- Vista actual para admin -->
+                <li><a href="#" class="active" aria-current="page">Administración</a></li>
+            </ul>
+        </div>
+        </nav>
+    <button type="button" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="M4 6h16"/><path d="M4 18h16"/></svg></button>
+    </header>
+
+    <!-- SUB-NAVEGACIÓN (Admin) -->
+    <nav class="sub-nav" aria-label="Navegación de administración">
+        <button type="button" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="sub-nav-links"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="M4 6h16"/><path d="M4 18h16"/></svg></button>
+        <div class="mobile-drawer">
+            <div class="mobile-drawer-title"><h3>Menú</h3><button type="button" class="menu-cerrar" aria-label="Cerrar menú"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div>
+            <ul class="sub-nav-links" id="sub-nav-links">
+            <li><a href="dashboard-admin-registrar.html" class="active" aria-current="page">Registrar</a></li>
+            <li><a href="dashboard-admin-estado.html">Estado</a></li>
+            <li><a href="dashboard-admin-asignaciones.html">Asignaciones</a></li>
+            <li><a href="dashboard-admin-camiones.html">Camiones</a></li>
+            <li><a href="dashboard-admin-ranking.html">Ranking</a></li>
+            <li><a href="dashboard-admin-importar.html">Importar</a></li>
+        </ul>
+        <div class="user-menu">
+            <a href="#" class="user-link">ADMIN <span aria-hidden="true"><svg aria-hidden="true" class="lucide lucide-user" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /> <circle cx="12" cy="7" r="4" /> </svg></span></a>
+            <button type="button" class="logout-btn" aria-label="Cerrar sesión"><svg aria-hidden="true" class="lucide lucide-log-out" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="m16 17 5-5-5-5" /> <path d="M21 12H9" /> <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /> </svg> Salir</button>
+        </div>
+        </div>
+    </nav>
+
+    <main class="page-container dashboard-container admin-container">
+        
+        <!-- ENCABEZADO DE SECCIÓN -->
+        <header class="admin-header-row">
+            <div class="admin-header-text">
+                <h2>Registrar ingresos al depósito</h2>
+                <p>La persona administradora registra a la persona donante si todavía no existe en la plataforma y luego carga, en su nombre, todos los bienes recibidos en una única entrega. El sistema después segmentará internamente la donación por subcategoría, estado o vencimiento cuando corresponda.</p>
+            </div>
+            <div class="admin-header-action">
+                <span class="badge-gray"><svg aria-hidden="true" class="lucide lucide-file-text" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" /> <path d="M14 2v5a1 1 0 0 0 1 1h5" /> <path d="M10 9H8" /> <path d="M16 13H8" /> <path d="M16 17H8" /> </svg> Ingreso manual en depósito</span>
+            </div>
+        </header>
+
+        <!-- STEPPER (Pasos) -->
+        <div class="stepper-container" aria-label="Progreso de registro">
+            <div class="step-card active" aria-current="step">
+                <span class="step-eyebrow">PASO 1</span>
+                <h3>Identificar donante</h3>
+                <p>Buscar una persona existente o registrar una nueva.</p>
+            </div>
+            <div class="step-card">
+                <span class="step-eyebrow">PASO 2</span>
+                <h3>Cargar bienes recibidos</h3>
+                <p>Registrar categoría, subcategoría, cantidad y datos clave.</p>
+            </div>
+            <div class="step-card">
+                <span class="step-eyebrow">PASO 3</span>
+                <h3>Confirmar ingreso</h3>
+                <p>Guardar la donación y asociarla a la persona donante.</p>
+            </div>
+        </div>
+
+        <!-- TARJETA 1: PERSONA DONANTE -->
+        <section class="admin-form-card" aria-label="Datos de la persona donante">
+            <header class="card-header-flex">
+                <div class="card-title-group">
+                    <h2>Persona donante</h2>
+                    <p>Buscá a la persona donante por nombre, email o documento. Si no existe, podés registrarla en el momento y dejarla asociada a la donación que se está cargando.</p>
+                </div>
+                <span class="badge-gray"><svg aria-hidden="true" class="lucide lucide-user" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /> <circle cx="12" cy="7" r="4" /> </svg> Paso inicial</span>
+            </header>
+
+            <div class="form-group">
+                <label for="buscar_donante" class="algo-label">Buscar donante registrado</label>
+                <div class="search-input-wrapper">
+                    <span class="search-icon" aria-hidden="true"><svg aria-hidden="true" class="lucide lucide-search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="m21 21-4.34-4.34" /> <circle cx="11" cy="11" r="8" /> </svg></span>
+                    <input type="text" id="buscar_donante" class="admin-input" placeholder="Buscar por nombre, email o documento...">
+                    <span class="dropdown-icon" aria-hidden="true">⌄</span>
+                </div>
+            </div>
+
+            <!-- Usuario Seleccionado y Helper Box -->
+            <div class="selected-user-grid">
+                <div class="selected-user-card">
+                    <div class="user-main-info">
+                        <img class="user-avatar img-avatar" src="https://i.pravatar.cc/64?img=48" alt="" aria-hidden="true" loading="lazy">
+                        <div class="user-details">
+                            <h4>Ana Pérez</h4>
+                            <p>DNI 12.345.678 - ana@mail.com</p>
+                        </div>
+                        <span class="estado-seleccion">✓ Donante seleccionada</span>
+                    </div>
+                    <div class="user-meta-info">
+                        <div class="meta-box">
+                            <span class="meta-label">Teléfono</span>
+                            <span class="meta-value">+54 11 5555-5555</span>
+                        </div>
+                        <div class="meta-box">
+                            <span class="meta-label">Tipo persona</span>
+                            <span class="meta-value">Humana</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="helper-box">
+                    <h4>Qué pasa al confirmar</h4>
+                    <p>La persona quedará asociada a la carga actual y podrá recibir el correo de bienvenida con sus accesos si es un alta nueva.</p>
+                </div>
+            </div>
+
+            <hr class="admin-divider">
+
+            <!-- Formulario Alta Rápida -->
+            <div class="alta-rapida-header">
+                <h3>Si no existe en el sistema</h3>
+                <span class="text-muted info-note">Alta rápida</span>
+            </div>
+
+            <form action="#" class="admin-grid-form">
+                <div class="form-group">
+                    <label>Tipo persona</label>
+                    <select class="admin-input"><option>Humana</option></select>
+                </div>
+                <div class="form-group">
+                    <label>Nombre / Razón social</label>
+                    <input type="text" class="admin-input" placeholder="Ej: Arcos Plateados S.A.">
+                </div>
+                <div class="form-group">
+                    <label>Tipo documento</label>
+                    <select class="admin-input"><option>DNI</option></select>
+                </div>
+                <div class="form-group">
+                    <label>Documento</label>
+                    <input type="text" class="admin-input" placeholder="12.345.678">
+                </div>
+                <div class="form-group full-width">
+                    <label>Email</label>
+                    <input type="email" class="admin-input" placeholder="ana@mail.com">
+                </div>
+                
+                <div class="form-actions right">
+                    <button type="button" class="btn-solid-green">Cargar y seleccionar</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- TARJETA 2: CARGA DE LA DONACIÓN -->
+        <section class="admin-form-card" aria-label="Carga de bienes de la donación">
+            <header class="card-header-flex">
+                <div class="card-title-group">
+                    <h2>Carga de la donación recibida</h2>
+                    <p>Una vez identificada la persona donante, registrá toda la entrega recibida. Cada fila representa un bien o lote con su subcategoría, cantidad, estado y vencimiento cuando aplique.</p>
+                </div>
+                <span class="badge-gray"><svg aria-hidden="true" class="lucide lucide-package" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z" /> <path d="M12 22V12" /> <polyline points="3.29 7 12 12 20.71 7" /> <path d="m7.5 4.27 9 5.15" /> </svg> Segundo bloque</span>
+            </header>
+
+            <div class="donacion-header-grid">
+                <div class="form-group">
+                    <label>Descripción general</label>
+                    <textarea class="admin-input" rows="3" placeholder="Ej: Donación entregada por Arcos Plateados durante mudanza de oficinas..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Fecha de ingreso</label>
+                    <div class="date-picker-box">
+                        <span class="calendar-icon" aria-hidden="true"><svg aria-hidden="true" class="lucide lucide-calendar" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M8 2v3" /> <path d="M16 2v3" /> <rect x="3" y="3" width="18" height="18" rx="2" /> <path d="M3 9h18" /> </svg></span>
+                        <div>
+                            <span class="date-label">Ingreso al depósito</span>
+                            <span class="date-value">12/11/2026</span>
+                        </div>
+                        <span class="badge-light">Hoy</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lista de Bienes -->
+            <div class="bienes-section">
+                <header class="bienes-header">
+                    <div>
+                        <h3>Bienes incluidos</h3>
+                        <p>La segmentación posterior se hará por subcategoría, estado o vencimiento.</p>
+                    </div>
+                    <button type="button" class="btn-outline-gray">+ Agregar bien</button>
+                </header>
+
+                <!-- Bien 1 -->
+                <div class="bien-row">
+                    <div class="form-group"><label>Categoría</label><select class="admin-input"><option>Alimentos</option></select></div>
+                    <div class="form-group"><label>Subcategoría</label><select class="admin-input"><option>Fideos secos</option></select></div>
+                    <div class="form-group"><label>Cantidad</label><input type="number" class="admin-input" value="100"></div>
+                    <div class="form-group"><label>Unidad</label><select class="admin-input"><option>Paquetes</option></select></div>
+                    <div class="form-group"><label>Vencimiento</label><input type="text" class="admin-input" value="01/01/2027"></div>
+                    <div class="form-group"><label>Foto</label><button type="button" class="btn-upload"><svg aria-hidden="true" class="lucide lucide-camera" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z" /> <circle cx="12" cy="13" r="3" /> </svg> Adjuntar</button></div>
+                    <div class="bien-label">Bien 1</div>
+                </div>
+
+                <!-- Bien 2 -->
+                <div class="bien-row">
+                    <div class="form-group"><label>Categoría</label><select class="admin-input"><option>Mobiliario</option></select></div>
+                    <div class="form-group"><label>Subcategoría</label><select class="admin-input"><option>Sillas</option></select></div>
+                    <div class="form-group"><label>Cantidad</label><input type="number" class="admin-input" value="6"></div>
+                    <div class="form-group"><label>Unidad</label><select class="admin-input"><option>Unidades</option></select></div>
+                    <div class="form-group"><label>Estado</label><select class="admin-input"><option>Usado</option></select></div>
+                    <div class="form-group"><label>Foto</label><button type="button" class="btn-upload"><svg aria-hidden="true" class="lucide lucide-camera" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z" /> <circle cx="12" cy="13" r="3" /> </svg> Adjuntar</button></div>
+                    <div class="bien-label">Bien 2</div>
+                </div>
+            </div>
+
+            <!-- Footer Resumen -->
+            <footer class="registro-footer-box">
+                <div class="resumen-text">
+                    <h4 style="display: flex; align-items: center; gap: 8px;"><span aria-hidden="true"><svg aria-hidden="true" class="lucide lucide-link-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M9 17H7A5 5 0 0 1 7 7h2" /> <path d="M15 7h2a5 5 0 1 1 0 10h-2" /> <line x1="8" x2="16" y1="12" y2="12" /> </svg></span> Resumen de registro</h4>
+                    <p>La entrega quedará asociada a <strong>Ana Pérez</strong> y contendrá <strong>2 bienes cargados</strong>. Luego el sistema podrá generar donaciones separadas por subcategoría, estado o fecha de vencimiento.</p>
+                    <p>Esto permite registrar toda la recepción en depósito en una sola carga.</p>
+                </div>
+                <button type="button" class="btn-solid-black" id="btn-registrar-ingreso">Registrar ingreso</button>
+            </footer>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-left"><p>© 2026 DonaTrack - UTN Solidaria</p></div>
+        <div class="footer-right">
+            <a href="#">Términos y Condiciones</a>
+            <a href="#">Política de Privacidad</a>
+            <a href="#">Contacto</a>
+        </div>
+    </footer>
+    <script src="dropdowns.js"></script>
+    <script src="toast.js"></script>
+    <script src="logout.js"></script>
+    <script>
+        document.getElementById("btn-registrar-ingreso").addEventListener("click", function () {
+            DonaToast.show("Ingreso registrado en el depósito.", "exito");
+        });
+    </script>
+    <script src="mobile-menu.js"></script>
+</body>
+</html>
