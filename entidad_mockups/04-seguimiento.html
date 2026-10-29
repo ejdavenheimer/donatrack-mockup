@@ -1,0 +1,129 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<title>DonaTrack - Seguimiento</title><style>@layer base{html,body{margin:0;padding:0;}}::-webkit-scrollbar{display:none;}
+.stepper{display:flex; align-items:flex-start;}
+.step{flex:1; position:relative; text-align:center; padding-top:2px;}
+.step:not(:last-child)::after{content:''; position:absolute; top:13px; left:50%; width:100%; height:2px; background:#D8E3E8; z-index:0;}
+.step.done:not(:last-child)::after{background:#3CC2FF;}
+.dot{width:26px; height:26px; border-radius:999px; background:#fff; border:2px solid #D8E3E8; display:flex; align-items:center; justify-content:center; margin:0 auto 9px; position:relative; z-index:1;}
+.step.done .dot{background:#3CC2FF; border-color:#3CC2FF;}
+.step.current .dot{background:#07324A; border-color:#07324A; box-shadow:0 0 0 5px rgba(11,132,179,.14);}
+.step .lbl{font-size:12px; font-weight:800; color:#B6C2C8;}
+.step.done .lbl{color:#0B84B3;}
+.step.current .lbl{color:#07324A;}
+.step .ts{font-size:11px; color:#8C9AA3; margin-top:2px; display:block;}
+.map-pin{position:absolute; transform:translate(-50%,-100%); display:flex; align-items:center; gap:6px; background:#fff; border:1.5px solid #9ED4EE; border-radius:999px; padding:6px 12px 6px 8px; font-size:12px; font-weight:700; box-shadow:0 4px 14px rgba(11,132,179,.18); white-space:nowrap;}
+.trk-item{display:block; width:100%; text-align:left; background:none; border:none; border-left:3px solid transparent; border-bottom:1px solid #EAF0F2; padding:14px 14px 15px 15px; cursor:pointer; transition:background .15s ease;}
+.trk-item:hover{background:#F7FCFF;}
+.trk-item.active{border-left-color:#3CC2FF; background:#F3FBFF;}
+.trk-item:last-child{border-bottom:none;}
+</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={theme:{extend:{colors:{"on-surface":"#121A20","on-surface-variant":"#5B6670","outline":"#8C9AA3","surface":"#FFFFFF","on-primary":"#07324A","secondary":"#4C6E4A","primary":"#3CC2FF","primary-deep":"#0B84B3","surface-container-highest":"#C9EFFF","surface-container-high":"#E3F7FF","primary-container":"#E3F7FF","surface-container-low":"#F3FBFF","surface-container":"#E3F7FF","surface-container-lowest":"#ffffff"},borderRadius:{DEFAULT:"999px",lg:"22px",xl:"28px",full:"9999px"}}}};</script></head>
+<body class="bg-white text-on-surface antialiased" style="font-family:'Plus Jakarta Sans',sans-serif;">
+
+<header class="sticky top-0 z-30" style="background:#07324A;">
+<div class="h-16 max-w-[1280px] mx-auto px-6 flex items-center justify-between">
+<a href="../donante_mockups/00-home.html" class="flex items-center gap-2.5"><img src="img/logo-mark-light.png" alt="" style="height:26px; width:auto;"/><span class="text-[17px] font-bold tracking-tight text-white">DonaTrack</span></a>
+<nav class="hidden sm:flex items-center gap-6"><a href="../donante_mockups/00-home.html" class="text-[13.5px] font-semibold text-white/60 hover:text-white">Inicio</a><a href="../donante_mockups/donaciones.html" class="text-[13.5px] font-semibold text-white/60 hover:text-white">Donaciones</a></nav>
+</div>
+</header>
+
+<nav class="sticky z-20" style="top:64px; background:#07324A; border-top:1px solid rgba(255,255,255,.12);" aria-label="Navegación de usuario">
+<div class="max-w-[1280px] mx-auto px-6 h-12 flex items-center justify-between">
+<ul class="flex items-center gap-6 list-none p-0 m-0 text-[13px] font-semibold overflow-x-auto">
+<li><a href="01-registrar-necesidad.html" class="inline-block py-1 text-white/55 hover:text-white" style="text-decoration:none;">Registrar necesidad</a></li>
+<li><a href="02-estado.html" class="inline-block py-1 text-white/55 hover:text-white" style="text-decoration:none;">Estado</a></li>
+<li><a href="03-notificaciones.html" class="inline-block py-1 text-white/55 hover:text-white" style="text-decoration:none;">Notificaciones</a></li>
+<li><a href="04-seguimiento.html" class="inline-block py-1" style="color:#3CC2FF; border-bottom:2px solid #3CC2FF;" aria-current="page">Seguimiento</a></li>
+</ul>
+<div class="flex items-center gap-4 flex-none pl-4">
+<span class="flex items-center gap-1.5 text-[11.5px] font-bold uppercase tracking-wide text-white/55"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Entidad</span>
+<button class="flex items-center gap-1.5 text-[12px] font-semibold text-white/55 hover:text-white"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/></svg>Salir</button>
+</div>
+</div>
+</nav>
+
+<main class="max-w-[1080px] mx-auto px-6 py-8">
+<div class="mb-7"><p class="text-[12px] font-bold uppercase tracking-wide mb-1.5" style="color:#0B84B3;">Panel de la entidad</p><h1 class="text-[24px] font-extrabold tracking-tight">Seguimiento en tiempo real</h1></div>
+
+<div class="grid lg:grid-cols-[290px_1fr] gap-7 items-start">
+
+<aside>
+<p class="text-[11px] font-bold uppercase tracking-wider text-on-surface-variant mb-2">Entregas en curso · 2</p>
+<div style="border-top:1.5px solid #121A20;">
+<button type="button" class="trk-item active">
+<div class="flex items-center justify-between gap-2 mb-0.5"><span class="text-[14px] font-extrabold">Donación #120</span><span class="text-[11.5px] font-bold" style="color:#0B84B3;">15 min</span></div>
+<p class="text-[12.5px] text-on-surface-variant mb-2">Fideos, Sillas</p>
+<span class="inline-flex items-center gap-1.5 text-[11.5px] font-bold" style="color:#0B84B3;"><span style="width:6px;height:6px;border-radius:999px;background:#3CC2FF;"></span>En camino · M-123</span>
+</button>
+<button type="button" class="trk-item">
+<div class="flex items-center justify-between gap-2 mb-0.5"><span class="text-[14px] font-extrabold">Donación #121</span><span class="text-[11.5px] font-bold" style="color:#5B6670;">45 min</span></div>
+<p class="text-[12.5px] text-on-surface-variant mb-2">Ropa, Abrigos</p>
+<span class="inline-flex items-center gap-1.5 text-[11.5px] font-bold" style="color:#0B84B3;"><span style="width:6px;height:6px;border-radius:999px;background:#3CC2FF;"></span>En camino · M-124</span>
+</button>
+</div>
+</aside>
+
+<section>
+<p class="text-[12px] font-bold uppercase tracking-wide mb-1" style="color:#0B84B3;">Donación #120 · Fideos, Sillas</p>
+<h2 class="text-[20px] font-extrabold tracking-tight mb-1">Llega en 15 minutos</h2>
+<p class="text-[13.5px] text-on-surface-variant mb-6">Camión M-123 · Ruta 9, km 45 · actualizado hace 2 min</p>
+<div class="mb-6">
+<div class="stepper">
+<div class="step done"><div class="dot"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></div><span class="lbl">Confirmada</span><span class="ts">1 abril</span></div>
+<div class="step done"><div class="dot"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></div><span class="lbl">Asignada</span><span class="ts">3 abril</span></div>
+<div class="step current"><div class="dot" style="background:#07324A;border-color:#07324A;"></div><span class="lbl">En camino</span><span class="ts">Hoy, 14:10</span></div>
+<div class="step "><div class="dot"></div><span class="lbl">Entregada</span><span class="ts">—</span></div>
+</div>
+</div>
+<div class="relative" style="border-radius:16px; overflow:hidden; border:1px solid #D4E6F0;">
+<svg viewBox="0 0 480 230" preserveAspectRatio="none" style="width:100%; height:220px; display:block;">
+<rect width="480" height="230" fill="#E9F3F9"/>
+<rect x="18" y="18" width="86" height="72" rx="9" fill="#E0EDF4"/>
+<rect x="332" y="14" width="132" height="58" rx="9" fill="#E0EDF4"/>
+<rect x="360" y="122" width="108" height="94" rx="9" fill="#DDEAF2"/>
+<rect x="28" y="150" width="72" height="66" rx="9" fill="#DDEAF2"/>
+<rect x="150" y="28" width="112" height="62" rx="12" fill="#D9EADB"/>
+<g stroke="#FFFFFF" stroke-width="9" stroke-linecap="round"><path d="M-10 118 H490"/><path d="M128 -10 V240"/><path d="M312 -10 V240"/></g>
+<g stroke="#F4FAFD" stroke-width="4"><path d="M-10 60 H490"/><path d="M-10 185 H490"/><path d="M415 -10 V240"/></g>
+<path d="M70 195 C 130 188, 170 165, 210 150 C 270 132, 320 100, 370 70" fill="none" stroke="#C7E9FB" stroke-width="11" stroke-linecap="round"/>
+<path d="M70 195 C 130 188, 170 165, 210 150" fill="none" stroke="#3CC2FF" stroke-width="5" stroke-linecap="round"/>
+<path d="M210 150 C 270 132, 320 100, 370 70" fill="none" stroke="#7FD4F7" stroke-width="5" stroke-linecap="round" stroke-dasharray="1 11"/>
+<circle cx="70" cy="195" r="6" fill="#fff" stroke="#9BC8DC" stroke-width="3"/>
+</svg>
+<div style="position:absolute; left:43.75%; top:65.2%; transform:translate(-50%,-50%);"><span style="display:flex; width:36px; height:36px; border-radius:999px; background:#fff; border:2px solid #3CC2FF; align-items:center; justify-content:center; box-shadow:0 5px 14px rgba(11,132,179,.30);"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#0B84B3" stroke-width="2"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/><path d="M14 9h4l3 3v5a1 1 0 0 1-1 1h-1"/></svg></span></div>
+<div style="position:absolute; left:77.1%; top:30.4%; transform:translate(-50%,-100%);"><svg width="30" height="38" viewBox="0 0 24 30" fill="none"><path d="M12 0C5.9 0 1 4.9 1 11c0 7.5 11 19 11 19s11-11.5 11-19C23 4.9 18.1 0 12 0Z" fill="#0F7A4A"/><circle cx="12" cy="11" r="4.2" fill="#fff"/></svg></div>
+<div style="position:absolute; left:14px; bottom:12px; display:flex; align-items:center; gap:7px; background:#fff; border-radius:999px; padding:6px 13px 6px 9px; box-shadow:0 4px 14px rgba(7,50,74,.14);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0B84B3" stroke-width="2"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg><span style="font-size:12px; font-weight:700; color:#07324A;">M-123 · a 1,2 km</span></div>
+</div>
+</section>
+
+</div>
+</main>
+
+<footer class="relative overflow-hidden" style="background:#07202C;">
+<svg aria-hidden="true" class="absolute inset-0 w-full h-full" style="opacity:.16;" fill="none" stroke="#3CC2FF" stroke-width="1.8">
+<g transform="translate(60,36) rotate(-8) scale(1.3)"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></g>
+<g transform="translate(200,120) rotate(10) scale(1.1)"><path d="M12 21s-6.5-4.2-8.9-8.1C1.4 9.6 2.8 6.2 6.1 6.2c1.9 0 3.3 1.1 4.3 2.6C11.4 7.3 12.8 6.2 14.7 6.2c3.3 0 4.7 3.4 3.2 6.2C15.5 16.3 12 21 12 21Z"/></g>
+<g transform="translate(360,50) rotate(6) scale(1.2)"><rect x="4" y="8" width="16" height="12" rx="1.5"/><path d="M4 8l8-4 8 4"/><path d="M12 4v16"/></g>
+<g transform="translate(520,140) rotate(-12) scale(1)"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></g>
+<g transform="translate(680,30) rotate(14) scale(1.3)"><rect x="2" y="9" width="10" height="7" rx="1"/><path d="M12 11h4l3 3v2h-7z"/><circle cx="6.5" cy="18" r="1.6"/><circle cx="16.5" cy="18" r="1.6"/></g>
+<g transform="translate(830,110) rotate(-6) scale(1.1)"><path d="M12 21s-6.5-4.2-8.9-8.1C1.4 9.6 2.8 6.2 6.1 6.2c1.9 0 3.3 1.1 4.3 2.6C11.4 7.3 12.8 6.2 14.7 6.2c3.3 0 4.7 3.4 3.2 6.2C15.5 16.3 12 21 12 21Z"/></g>
+<g transform="translate(960,40) rotate(9) scale(1.2)"><rect x="4" y="8" width="16" height="12" rx="1.5"/><path d="M4 8l8-4 8 4"/><path d="M12 4v16"/></g>
+<g transform="translate(1100,130) rotate(-10) scale(1.1)"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></g>
+</svg>
+
+<div class="relative max-w-[1280px] mx-auto px-6 py-11 flex flex-col gap-9 md:flex-row md:items-center md:justify-between">
+<div class="flex flex-col items-center md:items-start gap-5">
+<a href="../donante_mockups/00-home.html" class="flex items-center gap-2.5"><img src="img/logo-mark-light.png" alt="" style="height:26px; width:auto;"/><span class="text-[16px] font-bold tracking-tight text-white">DonaTrack</span></a>
+<div class="flex items-center gap-3">
+<a href="#" aria-label="Instagram" class="w-10 h-10 rounded-full flex items-center justify-center transition-colors hover:bg-[#3CC2FF]" style="background:rgba(255,255,255,.08);"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="#fff" stroke="none"/></svg></a>
+<a href="#" aria-label="LinkedIn" class="w-10 h-10 rounded-full flex items-center justify-center transition-colors hover:bg-[#3CC2FF]" style="background:rgba(255,255,255,.08);"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><line x1="7.5" y1="10" x2="7.5" y2="17"/><circle cx="7.5" cy="7" r="0.6" fill="#fff" stroke="none"/><path d="M11.5 17v-4.5a2 2 0 0 1 4 0V17"/><line x1="11.5" y1="10" x2="11.5" y2="17"/></svg></a>
+<a href="#" aria-label="Facebook" class="w-10 h-10 rounded-full flex items-center justify-center transition-colors hover:bg-[#3CC2FF]" style="background:rgba(255,255,255,.08);"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M14 9h2.5V6H14c-1.93 0-3.5 1.57-3.5 3.5V12H8v3h2.5v6h3v-6H16l.5-3h-3V9.8c0-.44.36-.8.8-.8H14Z"/></svg></a>
+</div>
+</div>
+<div class="flex flex-col items-center md:items-end gap-3.5">
+<nav class="flex items-center gap-6 text-[13px] font-semibold text-white/70"><a href="#" class="hover:text-white" style="text-decoration:none;">Términos y Condiciones</a><a href="#" class="hover:text-white" style="text-decoration:none;">Política de Privacidad</a><a href="#" class="hover:text-white" style="text-decoration:none;">Contacto</a></nav>
+<p class="text-[12px] text-white/35">© 2026 DonaTrack — UTN Solidaria</p>
+</div>
+</div>
+</footer>
+
+</body></html>

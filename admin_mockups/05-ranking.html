@@ -1,0 +1,115 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<title>DonaTrack - Administración | Ranking</title><style>@layer base{html,body{margin:0;padding:0;}}::-webkit-scrollbar{display:none;}
+.pill-in{border-radius:999px;}
+.f-input{border-radius:999px; border:1.5px solid #E3F7FF; background:#F3FBFF; padding:9px 16px; font-size:12.5px; outline:none;}
+.row-grid{display:grid; grid-template-columns:60px 2fr 1.3fr 1fr; gap:12px; align-items:center;}
+.btn-primary{border-radius:999px; padding:13px 28px; font-size:14px; font-weight:800; background:#3CC2FF; color:#07324A; border:none; cursor:pointer; display:inline-flex; align-items:center; gap:6px; white-space:nowrap;}.btn-secondary{border-radius:999px; padding:10px 20px; font-size:13px; font-weight:700; background:#07324A; color:#fff; border:none; cursor:pointer; display:inline-flex; align-items:center; gap:6px; white-space:nowrap;}.btn-outline{border-radius:999px; padding:10px 20px; font-size:13px; font-weight:700; background:#fff; color:#121A20; border:1.5px solid #C7D6DC; cursor:pointer; display:inline-flex; align-items:center; gap:6px; white-space:nowrap;}.btn-outline-sm{border-radius:999px; padding:6px 14px; font-size:12px; font-weight:700; background:#fff; color:#121A20; border:1.5px solid #C7D6DC; cursor:pointer; display:inline-flex; align-items:center; gap:5px; white-space:nowrap;}.btn-add{border-radius:999px; padding:7px 16px; font-size:12.5px; font-weight:700; background:#fff; color:#0B84B3; border:1.5px dashed #9ED4EE; cursor:pointer; display:inline-flex; align-items:center; gap:5px; white-space:nowrap;}.btn-primary:disabled,.btn-secondary:disabled,.btn-outline:disabled,.btn-outline-sm:disabled{opacity:.45; cursor:not-allowed;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={theme:{extend:{colors:{"on-surface":"#121A20","on-surface-variant":"#5B6670","outline":"#8C9AA3","surface":"#FFFFFF","on-primary":"#07324A","secondary":"#4C6E4A","primary":"#3CC2FF","primary-deep":"#0B84B3","surface-container-highest":"#C9EFFF","surface-container-high":"#E3F7FF","primary-container":"#E3F7FF","surface-container-low":"#F3FBFF","surface-container":"#E3F7FF","surface-container-lowest":"#ffffff"},borderRadius:{DEFAULT:"999px",lg:"22px",xl:"28px",full:"9999px"}}}};</script></head>
+<body class="bg-white text-on-surface antialiased" style="font-family:'Plus Jakarta Sans',sans-serif;">
+
+<header class="sticky top-0 z-30" style="background:#07324A;">
+<div class="h-16 max-w-[1280px] mx-auto px-6 flex items-center justify-between">
+<a href="../donante_mockups/00-home.html" class="flex items-center gap-2.5"><img src="img/logo-mark-light.png" alt="" style="height:26px; width:auto;"/><span class="text-[17px] font-bold tracking-tight text-white">DonaTrack</span></a>
+<nav class="hidden sm:flex items-center gap-6"><a href="../donante_mockups/00-home.html" class="text-[13.5px] font-semibold text-white/60 hover:text-white">Inicio</a><span class="text-[13.5px] font-semibold" style="color:#3CC2FF;">Administración</span></nav>
+</div>
+</header>
+
+<nav class="sticky z-20" style="top:64px; background:#07324A; border-top:1px solid rgba(255,255,255,.12);" aria-label="Navegación de administración">
+<div class="max-w-[1280px] mx-auto px-6 h-12 flex items-center justify-between">
+<ul class="flex items-center gap-6 list-none p-0 m-0 text-[13px] font-semibold overflow-x-auto">
+<li><a href="01-registrar.html" class="inline-block py-1 text-white/55 hover:text-white" style="text-decoration:none;">Registrar</a></li>
+<li><a href="02-estado.html" class="inline-block py-1 text-white/55 hover:text-white" style="text-decoration:none;">Estado</a></li>
+<li><a href="03-asignaciones.html" class="inline-block py-1 text-white/55 hover:text-white" style="text-decoration:none;">Asignaciones</a></li>
+<li><a href="04-camiones.html" class="inline-block py-1 text-white/55 hover:text-white" style="text-decoration:none;">Camiones</a></li>
+<li><a href="05-ranking.html" class="inline-block py-1" style="color:#3CC2FF; border-bottom:2px solid #3CC2FF;" aria-current="page">Ranking</a></li>
+<li><a href="06-importar.html" class="inline-block py-1 text-white/55 hover:text-white" style="text-decoration:none;">Importar</a></li>
+</ul>
+<div class="flex items-center gap-4 flex-none pl-4">
+<span class="flex items-center gap-1.5 text-[11.5px] font-bold uppercase tracking-wide text-white/55"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Admin</span>
+<button class="flex items-center gap-1.5 text-[12px] font-semibold text-white/55 hover:text-white"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/></svg>Salir</button>
+</div>
+</div>
+</nav>
+
+<main class="max-w-[1280px] mx-auto px-6 py-8">
+<div class="flex items-end justify-between flex-wrap gap-5 mb-7">
+<div><p class="text-[12px] font-bold uppercase tracking-wide mb-1.5" style="color:#0B84B3;">Panel de administración</p><h1 class="text-[24px] font-extrabold tracking-tight mb-1">Ranking de donantes</h1><p class="text-on-surface-variant text-[14px] max-w-md">Visualizá los donantes más activos del mes y el historial de períodos anteriores.</p></div>
+<div class="flex items-center gap-2"><span class="text-[12px] font-bold text-on-surface-variant">Período:</span><select class="f-input">
+<option>✓ Octubre 2026</option><option>Septiembre 2026</option><option>Agosto 2026</option>
+</select></div>
+</div>
+
+<div style="background:#fff; border-radius:20px; padding:8px 28px 4px;">
+<div class="row-grid px-1 pb-3 text-[11px] font-bold uppercase tracking-wider text-on-surface-variant" style="border-bottom:1.5px solid #121A20;">
+<div style="text-align:center;">Posición</div><div>Donante</div><div>Misiones cumplidas</div><div>Categoría</div>
+</div>
+
+<div class="row-grid px-1 py-5" style="border-bottom:1px solid #E3EBEE;">
+<div><span class="text-[14px] font-extrabold" style="display:block; text-align:center;">1</span></div>
+<div class="flex items-center gap-3"><span class="w-8 h-8 rounded-full flex items-center justify-center flex-none text-[11px] font-bold text-white" style="background:#3CC2FF;">PS</span><strong class="text-[15px] font-bold">Pedro Sánchez</strong></div>
+<div class="text-[13.5px] font-bold">24 misiones</div>
+<div><span class="inline-flex items-center gap-2 text-[12.5px] font-bold" style="color:#92600A;"><span style="width:7px;height:7px;border-radius:999px;background:#92600A;"></span>Oro</span></div>
+</div>
+
+<div class="row-grid px-1 py-5" style="border-bottom:1px solid #E3EBEE;">
+<div><span class="text-[14px] font-extrabold" style="display:block; text-align:center;">2</span></div>
+<div class="flex items-center gap-3"><span class="w-8 h-8 rounded-full flex items-center justify-center flex-none text-[11px] font-bold text-white" style="background:#4C6E4A;">AT</span><strong class="text-[15px] font-bold">Arcos Plateados S.A.</strong></div>
+<div class="text-[13.5px] font-bold">19 misiones</div>
+<div><span class="inline-flex items-center gap-2 text-[12.5px] font-bold" style="color:#45505A;"><span style="width:7px;height:7px;border-radius:999px;background:#45505A;"></span>Plata</span></div>
+</div>
+
+<div class="row-grid px-1 py-5" style="border-bottom:1px solid #E3EBEE;">
+<div><span class="text-[14px] font-extrabold" style="display:block; text-align:center;">3</span></div>
+<div class="flex items-center gap-3"><span class="w-8 h-8 rounded-full flex items-center justify-center flex-none text-[11px] font-bold text-white" style="background:#0B84B3;">AT</span><strong class="text-[15px] font-bold">Ana Torres</strong></div>
+<div class="text-[13px] font-bold">15 misiones</div>
+<div><span class="inline-flex items-center gap-2 text-[12.5px] font-bold" style="color:#B5651D;"><span style="width:7px;height:7px;border-radius:999px;background:#B5651D;"></span>Bronce</span></div>
+</div>
+
+<div class="row-grid px-1 py-5" style="border-bottom:1px solid #E3EBEE;">
+<div><span class="text-[13px] font-bold text-on-surface-variant" style="display:block; text-align:center;">4</span></div>
+<div class="flex items-center gap-3"><span class="w-8 h-8 rounded-full flex items-center justify-center flex-none text-[11px] font-bold text-white" style="background:#3CC2FF;">JP</span><strong class="text-[15px] font-bold">Juan Pérez</strong></div>
+<div class="text-[13.5px] font-bold">11 misiones</div>
+<div><span class="inline-flex items-center gap-2 text-[12.5px] font-bold" style="color:#0B84B3;"><span style="width:7px;height:7px;border-radius:999px;background:#0B84B3;"></span>Estándar</span></div>
+</div>
+
+<div class="row-grid px-1 py-5">
+<div><span class="text-[13px] font-bold text-on-surface-variant" style="display:block; text-align:center;">5</span></div>
+<div class="flex items-center gap-3"><span class="w-8 h-8 rounded-full flex items-center justify-center flex-none text-[11px] font-bold text-white" style="background:#4C6E4A;">PS</span><strong class="text-[15px] font-bold">Panadería El Sol</strong></div>
+<div class="text-[13.5px] font-bold">8 misiones</div>
+<div><span class="inline-flex items-center gap-2 text-[12.5px] font-bold" style="color:#0B84B3;"><span style="width:7px;height:7px;border-radius:999px;background:#0B84B3;"></span>Estándar</span></div>
+</div>
+</div>
+
+<div class="flex justify-center mt-8">
+<button class="btn-outline">Cargar más donantes</button>
+</div>
+</main>
+
+<footer class="relative overflow-hidden" style="background:#07202C;">
+<svg aria-hidden="true" class="absolute inset-0 w-full h-full" style="opacity:.16;" fill="none" stroke="#3CC2FF" stroke-width="1.8">
+<g transform="translate(60,36) rotate(-8) scale(1.3)"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></g>
+<g transform="translate(200,120) rotate(10) scale(1.1)"><path d="M12 21s-6.5-4.2-8.9-8.1C1.4 9.6 2.8 6.2 6.1 6.2c1.9 0 3.3 1.1 4.3 2.6C11.4 7.3 12.8 6.2 14.7 6.2c3.3 0 4.7 3.4 3.2 6.2C15.5 16.3 12 21 12 21Z"/></g>
+<g transform="translate(360,50) rotate(6) scale(1.2)"><rect x="4" y="8" width="16" height="12" rx="1.5"/><path d="M4 8l8-4 8 4"/><path d="M12 4v16"/></g>
+<g transform="translate(520,140) rotate(-12) scale(1)"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></g>
+<g transform="translate(680,30) rotate(14) scale(1.3)"><rect x="2" y="9" width="10" height="7" rx="1"/><path d="M12 11h4l3 3v2h-7z"/><circle cx="6.5" cy="18" r="1.6"/><circle cx="16.5" cy="18" r="1.6"/></g>
+<g transform="translate(830,110) rotate(-6) scale(1.1)"><path d="M12 21s-6.5-4.2-8.9-8.1C1.4 9.6 2.8 6.2 6.1 6.2c1.9 0 3.3 1.1 4.3 2.6C11.4 7.3 12.8 6.2 14.7 6.2c3.3 0 4.7 3.4 3.2 6.2C15.5 16.3 12 21 12 21Z"/></g>
+<g transform="translate(960,40) rotate(9) scale(1.2)"><rect x="4" y="8" width="16" height="12" rx="1.5"/><path d="M4 8l8-4 8 4"/><path d="M12 4v16"/></g>
+<g transform="translate(1100,130) rotate(-10) scale(1.1)"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></g>
+</svg>
+
+<div class="relative max-w-[1280px] mx-auto px-6 py-11 flex flex-col gap-9 md:flex-row md:items-center md:justify-between">
+<div class="flex flex-col items-center md:items-start gap-5">
+<a href="../donante_mockups/00-home.html" class="flex items-center gap-2.5"><img src="img/logo-mark-light.png" alt="" style="height:26px; width:auto;"/><span class="text-[16px] font-bold tracking-tight text-white">DonaTrack</span></a>
+<div class="flex items-center gap-3">
+<a href="#" aria-label="Instagram" class="w-10 h-10 rounded-full flex items-center justify-center transition-colors hover:bg-[#3CC2FF]" style="background:rgba(255,255,255,.08);"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="#fff" stroke="none"/></svg></a>
+<a href="#" aria-label="LinkedIn" class="w-10 h-10 rounded-full flex items-center justify-center transition-colors hover:bg-[#3CC2FF]" style="background:rgba(255,255,255,.08);"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><line x1="7.5" y1="10" x2="7.5" y2="17"/><circle cx="7.5" cy="7" r="0.6" fill="#fff" stroke="none"/><path d="M11.5 17v-4.5a2 2 0 0 1 4 0V17"/><line x1="11.5" y1="10" x2="11.5" y2="17"/></svg></a>
+<a href="#" aria-label="Facebook" class="w-10 h-10 rounded-full flex items-center justify-center transition-colors hover:bg-[#3CC2FF]" style="background:rgba(255,255,255,.08);"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M14 9h2.5V6H14c-1.93 0-3.5 1.57-3.5 3.5V12H8v3h2.5v6h3v-6H16l.5-3h-3V9.8c0-.44.36-.8.8-.8H14Z"/></svg></a>
+</div>
+</div>
+<div class="flex flex-col items-center md:items-end gap-3.5">
+<nav class="flex items-center gap-6 text-[13px] font-semibold text-white/70"><a href="#" class="hover:text-white" style="text-decoration:none;">Términos y Condiciones</a><a href="#" class="hover:text-white" style="text-decoration:none;">Política de Privacidad</a><a href="#" class="hover:text-white" style="text-decoration:none;">Contacto</a></nav>
+<p class="text-[12px] text-white/35">© 2026 DonaTrack — UTN Solidaria</p>
+</div>
+</div>
+</footer>
+
+</body></html>

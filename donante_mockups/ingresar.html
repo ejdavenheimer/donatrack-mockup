@@ -1,0 +1,53 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<title>DonaTrack - Ingresar</title><style>@layer base{html,body{margin:0;padding:0;}}::-webkit-scrollbar{display:none;}
+.pill-in{border-radius:999px;}
+.f-input{border-radius:999px; border:1.5px solid #E3F7FF; background:#F3FBFF; padding:13px 20px; font-size:14px; width:100%; outline:none; box-sizing:border-box;}
+.f-input:focus{border-color:#3CC2FF; background:#fff;}
+</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={theme:{extend:{colors:{"on-surface":"#121A20","on-surface-variant":"#5B6670","primary":"#3CC2FF","primary-deep":"#0B84B3"},borderRadius:{DEFAULT:"999px"}}}};</script></head>
+<body class="antialiased" style="font-family:'Plus Jakarta Sans',sans-serif;">
+
+<main class="relative flex min-h-screen">
+
+<div class="hidden md:block absolute inset-y-0 left-0" style="width:calc(42% + 40px); z-index:0;">
+<img src="https://images.pexels.com/photos/7156158/pexels-photo-7156158.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="" class="absolute inset-0 w-full h-full object-cover"/>
+<div class="absolute inset-0" style="background:linear-gradient(180deg, rgba(7,32,44,.55) 0%, rgba(7,32,44,.8) 65%, rgba(7,32,44,.95) 100%);"></div>
+</div>
+
+<svg aria-hidden="true" class="hidden md:block absolute top-0 h-full" style="left:calc(42% - 40px); width:80px; z-index:10;" viewBox="0 0 200 900" preserveAspectRatio="none">
+<path d="M200,0 L100,0 C145,300 55,600 100,900 L200,900 Z" fill="#D7E7FF"/>
+</svg>
+
+<section class="relative hidden md:flex flex-col justify-center items-center text-center" style="width:42%; padding:0 56px; z-index:20;">
+<div class="relative flex flex-col items-center">
+<a href="00-home.html"><img src="img/logo-mark-light.png" alt="" style="height:40px; width:auto;" class="mb-6"/></a>
+<h2 class="text-white font-extrabold tracking-tight" style="font-size:28px;">DonaTrack</h2>
+<p class="text-white/65 text-[14px] leading-relaxed mt-4 max-w-xs">Sumate a la red de UTN Solidaria: registrá tus donaciones, seguí su recorrido hasta la entrega y ayudá a que cada aporte llegue a quien más lo necesita, con trazabilidad de punta a punta.</p>
+</div>
+</section>
+
+<section class="relative flex-1 flex flex-col px-8 sm:px-16 py-10" style="z-index:20; background:#D7E7FF;">
+<a href="00-home.html" class="text-[13px] font-bold text-on-surface-variant hover:text-on-surface self-start" style="text-decoration:none;">« Volver</a>
+
+<div class="flex-1 flex flex-col justify-center max-w-sm w-full mx-auto py-10">
+<h2 class="text-[26px] font-extrabold tracking-tight mb-7">Ingresar</h2>
+
+<form class="flex flex-col gap-3.5">
+<input class="f-input" type="text" placeholder="Email" required/>
+
+<div class="relative">
+<input class="f-input" type="password" placeholder="Contraseña" required style="padding-right:48px;"/>
+<button type="button" aria-label="Mostrar contraseña" class="absolute" style="right:16px; top:50%; transform:translateY(-50%); background:none; border:none; opacity:.5;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#121A20" stroke-width="2"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg></button>
+</div>
+
+<a href="#" class="text-[12.5px] font-semibold self-end" style="color:#0B84B3; text-decoration:none; margin-top:-4px;">¿Olvidaste la contraseña?</a>
+
+<button type="submit" class="pill-in py-3.5 mt-2" style="background:#3CC2FF; color:#07324A; font-size:14.5px; font-weight:800; border:none;">Confirmar</button>
+</form>
+
+<p class="text-center text-[13px] text-on-surface-variant mt-7">¿No tenés cuenta? <a href="crear-cuenta.html" style="color:#0B84B3; font-weight:700; text-decoration:none;">Creá una acá</a></p>
+</div>
+</section>
+
+</main>
+
+</body></html>

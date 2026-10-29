@@ -1,0 +1,80 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<title>DonaTrack - Registro</title><style>@layer base{html,body{margin:0;padding:0;}}::-webkit-scrollbar{display:none;}
+.pill-in{border-radius:999px;}
+.f-input{border-radius:999px; border:1.5px solid #E3F7FF; background:#F3FBFF; padding:13px 20px; font-size:14px; width:100%; outline:none; box-sizing:border-box; appearance:none;}
+.f-input:focus{border-color:#3CC2FF; background:#fff;}
+.role-btn{flex:1; text-align:center; padding:10px 14px; font-size:13px; font-weight:700; border-radius:999px; border:none; background:transparent; color:#5B6670; cursor:pointer;}
+.role-btn.active{background:#3CC2FF; color:#07324A;}
+</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={theme:{extend:{colors:{"on-surface":"#121A20","on-surface-variant":"#5B6670","primary":"#3CC2FF","primary-deep":"#0B84B3"},borderRadius:{DEFAULT:"999px"}}}};</script></head>
+<body class="antialiased" style="font-family:'Plus Jakarta Sans',sans-serif;">
+
+<main class="relative flex min-h-screen">
+
+<div class="hidden md:block absolute inset-y-0 left-0" style="width:calc(42% + 40px); z-index:0;">
+<img src="https://images.pexels.com/photos/14642652/pexels-photo-14642652.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="" class="absolute inset-0 w-full h-full object-cover"/>
+<div class="absolute inset-0" style="background:linear-gradient(180deg, rgba(7,32,44,.55) 0%, rgba(7,32,44,.8) 65%, rgba(7,32,44,.95) 100%);"></div>
+</div>
+
+<svg aria-hidden="true" class="hidden md:block absolute top-0 h-full" style="left:calc(42% - 40px); width:80px; z-index:10;" viewBox="0 0 200 900" preserveAspectRatio="none">
+<path d="M200,0 L100,0 C145,300 55,600 100,900 L200,900 Z" fill="#D7E7FF"/>
+</svg>
+
+<section class="relative hidden md:flex flex-col justify-center items-center text-center" style="width:42%; padding:0 56px; z-index:20;">
+<div class="relative flex flex-col items-center">
+<a href="00-home.html"><img src="img/logo-mark-light.png" alt="" style="height:40px; width:auto;" class="mb-6"/></a>
+<h2 class="text-white font-extrabold tracking-tight" style="font-size:28px;">DonaTrack</h2>
+<p class="text-white/65 text-[14px] leading-relaxed mt-4 max-w-xs">Sumate a la red de UTN Solidaria: registrá tus donaciones, seguí su recorrido hasta la entrega y ayudá a que cada aporte llegue a quien más lo necesita, con trazabilidad de punta a punta.</p>
+</div>
+</section>
+
+<section class="relative flex-1 flex flex-col px-8 sm:px-16 py-10" style="z-index:20; background:#D7E7FF;">
+<a href="00-home.html" class="text-[13px] font-bold text-on-surface-variant hover:text-on-surface self-start" style="text-decoration:none;">« Volver</a>
+
+<div class="flex-1 flex flex-col justify-center max-w-md w-full mx-auto py-8">
+<h2 class="text-[26px] font-extrabold tracking-tight mb-5">Registro</h2>
+
+<div class="flex items-center p-1 mb-5" style="background:#F3FBFF; border-radius:999px;">
+<button type="button" class="role-btn">Beneficiaria</button>
+<button type="button" class="role-btn active">Física</button>
+<button type="button" class="role-btn">Jurídica</button>
+</div>
+
+<form class="flex flex-col gap-3">
+
+<div class="grid grid-cols-2 gap-3">
+<input class="f-input" type="text" placeholder="Nombre" required/>
+<input class="f-input" type="text" placeholder="Apellido" required/>
+</div>
+
+<input class="f-input" type="email" placeholder="Email" required/>
+<input class="f-input" type="password" placeholder="Contraseña" required/>
+
+<div class="grid grid-cols-3 gap-3">
+<input class="f-input" type="number" placeholder="DNI" required/>
+<input class="f-input" type="number" placeholder="Edad" required/>
+<select class="f-input"><option value="">Género (opcional)</option><option>Femenino</option><option>Masculino</option><option>Otro</option></select>
+</div>
+
+<div class="grid grid-cols-3 gap-3">
+<input class="f-input" style="grid-column:span 2;" type="text" placeholder="Calle" required/>
+<input class="f-input" type="number" placeholder="Altura" required/>
+</div>
+
+<select class="f-input" required>
+<option>Contactarme por email</option>
+<option>Contactarme por teléfono</option>
+<option>Contactarme por WhatsApp</option>
+</select>
+
+<label class="flex items-center gap-2.5 text-[12.5px] text-on-surface-variant mt-1"><input type="checkbox" required style="width:16px;height:16px;accent-color:#3CC2FF;"/>Acepto los términos y condiciones</label>
+
+<button type="submit" class="pill-in py-3.5 mt-1" style="background:#3CC2FF; color:#07324A; font-size:14.5px; font-weight:800; border:none;">Confirmar</button>
+</form>
+
+<p class="text-center text-[13px] text-on-surface-variant mt-6">¿Ya tenés cuenta? <a href="ingresar.html" style="color:#0B84B3; font-weight:700; text-decoration:none;">Ingresá acá</a></p>
+</div>
+</section>
+
+</main>
+
+</body></html>
